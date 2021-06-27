@@ -2,13 +2,20 @@
   <div class="examples-index">
     <h1>All Examples</h1>
     <div v-for="example in examples" v-bind:key="example.id">
-      <h2>{{ example.sentence }}</h2>
+      <h2>{{ example.word }}</h2>
+      <h3>YOUR PROMPT: {{ example.prompt.text }}</h3>
+      <img v-bind:src="example.prompt.image_url" v-bind:alt="example.word" />
+
+      <p>{{ example.sentence }}</p>
+
       <!-- <img v-bind:src="photo.url" v-bind:alt="photo.name" />
       <p>Width: {{ photo.width }}</p>
       <p>Height: {{ photo.height }}</p> -->
     </div>
   </div>
 </template>
+
+<style></style>
 
 <script>
 import axios from "axios";
@@ -19,15 +26,11 @@ export default {
     };
   },
   created: function () {
-    this.indexExamples();
+    axios.get("/examples").then((response) => {
+      console.log("Examples array", response.data);
+      this.examples = response.data;
+    });
   },
-  methods: {
-    indexExamples: function () {
-      axios.get("/examples").then((response) => {
-        console.log("examples index", response);
-        this.examples = response.data;
-      });
-    },
-  },
+  methods: {},
 };
 </script>
