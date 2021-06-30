@@ -6,7 +6,7 @@ import Login from "../views/Login.vue";
 import Logout from "../views/Logout.vue";
 import ExamplesIndex from "../views/examples/Index.vue";
 import ExamplesNew from "../views/examples/New.vue";
-
+import WordsIndex from "../views/words/Index.vue";
 
 Vue.use(VueRouter);
 
@@ -48,6 +48,11 @@ const routes = [
     path: "/views/new",
     name: "examples-new",
     component: ExamplesNew,
+  },
+  {
+    path: "/views/words/index",
+    name: "words-index",
+    component: WordsIndex,
   },
 ];
 

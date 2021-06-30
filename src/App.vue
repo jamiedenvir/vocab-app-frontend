@@ -14,6 +14,8 @@
       <router-link to="/views/index">Index</router-link>
       |
       <router-link to="/views/new">New Example</router-link>
+      |
+      <router-link to="/views/words/index">Words Index</router-link>
     </div>
     <router-view />
   </div>
