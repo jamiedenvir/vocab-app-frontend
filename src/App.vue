@@ -12,6 +12,8 @@
       <router-link to="/logout">Logout</router-link>
       |
       <router-link to="/views/index">Index</router-link>
+      |
+      <router-link to="/views/new">New Example</router-link>
     </div>
     <router-view />
   </div>
