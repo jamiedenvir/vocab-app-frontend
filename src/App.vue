@@ -5,7 +5,7 @@
       |
       <router-link to="/views/index">Examples Index</router-link>
       |
-      <router-link to="/views/new">New Example</router-link>
+      <router-link to="/views/examples/new">New Example</router-link>
       |
       <router-link to="/views/words/index">Words Index</router-link>
       |

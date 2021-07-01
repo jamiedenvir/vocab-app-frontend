@@ -38,7 +38,7 @@ const routes = [
     component: ExamplesIndex,
   },
   {
-    path: "/views/new",
+    path: "/views/examples/new",
     name: "examples-new",
     component: ExamplesNew,
   },

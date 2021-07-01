@@ -1,6 +1,11 @@
 <template>
   <div class="words-index">
     <h1>Vocab Words</h1>
+    <div v-for="word in words" v-bind:key="word">
+      <router-link :to="`views/examples/new/${word.example}`">
+        <h2>{{ word }}</h2>
+      </router-link>
+    </div>
   </div>
 </template>
 
@@ -9,7 +14,7 @@
 export default {
   data: function () {
     return {
-      words: [],
+      words: ["abase", "abate", "aberration", "abjure", "abnegate", "abound", "abrade", "abrogate"],
     };
   },
   created: function () {},
