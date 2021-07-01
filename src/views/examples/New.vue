@@ -1,7 +1,7 @@
 <template>
   <div class="examples-new">
-    <form v-on:submit.prevent="createRecipe()">
-      <h1>New Recipe</h1>
+    <form v-on:submit.prevent="createExample()">
+      <h1>New Example</h1>
       <ul>
         <li class="text-danger" v-for="error in errors" v-bind:key="error">
           {{ error }}
