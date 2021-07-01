@@ -3,19 +3,17 @@
     <div id="nav">
       <router-link to="/">Home</router-link>
       |
-      <router-link to="/about">About</router-link>
+      <router-link to="/views/index">Examples Index</router-link>
+      |
+      <router-link to="/views/new">New Example</router-link>
+      |
+      <router-link to="/views/words/index">Words Index</router-link>
       |
       <router-link to="/signup">Signup</router-link>
       |
       <router-link to="/login">Login</router-link>
       |
       <router-link to="/logout">Logout</router-link>
-      |
-      <router-link to="/views/index">Index</router-link>
-      |
-      <router-link to="/views/new">New Example</router-link>
-      |
-      <router-link to="/views/words/index">Words Index</router-link>
     </div>
     <router-view />
   </div>
