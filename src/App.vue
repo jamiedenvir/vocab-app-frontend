@@ -5,8 +5,6 @@
       |
       <router-link to="/examples">Examples Index</router-link>
       |
-      <router-link to="/examples/new">New Example</router-link>
-      |
       <router-link to="/words">Words Index</router-link>
       |
       <router-link to="/signup">Signup</router-link>

@@ -2,7 +2,7 @@
   <div class="examples-index">
     <h1>All Examples</h1>
     <div v-for="example in examples" v-bind:key="example.id">
-      <router-link :to="`examples/show/${example}`">
+      <router-link :to="`examples/show/${example.id}`">
         <h2>{{ example.word }}</h2>
         <h3>YOUR PROMPT: {{ example.prompt.text }}</h3>
         <img v-bind:src="example.prompt.image_url" v-bind:alt="example.word" />
