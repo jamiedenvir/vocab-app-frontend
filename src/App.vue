@@ -1,20 +1,25 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Home</router-link>
-      |
-      <router-link to="/examples">Examples Index</router-link>
-      |
-      <router-link to="/words">Words Index</router-link>
-      |
-      <router-link to="/signup">Signup</router-link>
-      |
-      <router-link to="/login">Login</router-link>
-      |
-      <router-link to="/logout">Logout</router-link>
-      |
-      <router-link to="/examples/:id">Examples Show</router-link>
+      <div v-if="isLoggedIn()">
+        <router-link to="/logout">Logout</router-link>
+      </div>
+      <div v-if="!isLoggedIn()">
+        <router-link to="/login">Login</router-link>
+      </div>
+      <div v-if="!isLoggedIn()" class="cta">
+        <router-link to="/signup">Signup</router-link>
+      </div>
     </div>
+    <router-link to="/">Home</router-link>
+    |
+    <router-link to="/examples">Examples Index</router-link>
+    |
+    <router-link to="/words">Words Index</router-link>
+    |
+
+    <router-link to="/examples/:id">Examples Show</router-link>
+
     <router-view />
   </div>
 </template>
@@ -41,3 +46,21 @@
   color: #42b983;
 }
 </style>
+
+<script>
+export default {
+  data: function () {
+    return {
+      flashMessage: "",
+    };
+  },
+  methods: {
+    isLoggedIn: function () {
+      return localStorage.getItem("jwt");
+    },
+    getUserId: function () {
+      return localStorage.getItem("user_id");
+    },
+  },
+};
+</script>
