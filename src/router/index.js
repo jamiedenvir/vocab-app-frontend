@@ -4,10 +4,10 @@ import Home from "../views/Home.vue";
 import Signup from "../views/Signup.vue";
 import Login from "../views/Login.vue";
 import Logout from "../views/Logout.vue";
-import ExamplesIndex from "../views/examples/Index.vue";
-import ExamplesNew from "../views/examples/New.vue";
-import ExamplesShow from "../views/examples/Show.vue";
-import WordsIndex from "../views/words/Index.vue";
+import ExamplesIndex from "../views/vocab/ExamplesIndex.vue";
+import ExamplesNew from "../views/vocab/ExamplesNew.vue";
+import ExamplesShow from "../views/vocab/ExamplesShow.vue";
+import WordsIndex from "../views/vocab/WordsIndex.vue";
 
 Vue.use(VueRouter);
 
@@ -34,22 +34,22 @@ const routes = [
     component: Logout,
   },
   {
-    path: "/views/index",
+    path: "/examples",
     name: "examples-index",
     component: ExamplesIndex,
   },
   {
-    path: "/views/examples/new",
+    path: "/examples/new",
     name: "examples-new",
     component: ExamplesNew,
   },
   {
-    path: "/views/examples/show",
+    path: "/examples/:id",
     name: "examples-show",
     component: ExamplesShow,
   },
   {
-    path: "/views/words/index",
+    path: "/words",
     name: "words-index",
     component: WordsIndex,
   },
