@@ -1,12 +1,37 @@
 <template>
   <div class="examples-show">
-    <h1>Examples Show</h1>
-    <h2>{{ example.word }}</h2>
-    <h3>YOUR PROMPT: {{ example.prompt }}</h3>
-    <img v-bind:src="example.prompt.image_url" v-bind:alt="example.word" />
+    <h5>(examples show page)</h5>
+    <h1 id="word">{{ example.word }}</h1>
+
+    <h3>YOUR PROMPT:</h3>
+    <div>
+      <h2 v-if="example.prompt.image_url === null">
+        {{ example.prompt.text }}
+      </h2>
+      <h2 v-else>
+        <img class="image" :src="example.prompt.image_url" alt="" />
+      </h2>
+    </div>
+
+    <h3>YOUR SENTENCE:</h3>
     <h2>{{ example.sentence }}</h2>
   </div>
 </template>
+
+<style>
+.text-danger {
+  color: red;
+}
+.image {
+  width: 350px;
+  height: auto;
+}
+#word {
+  font-size: 100px;
+  color: rgb(205, 125, 232);
+  font-family: monospace;
+}
+</style>
 
 <script>
 import axios from "axios";
