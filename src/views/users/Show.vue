@@ -5,6 +5,38 @@
       <p>Name: {{ user.name }}</p>
       <p>Email: {{ user.email }}</p>
     </div>
+
+    <!-- edit user -->
+    <span>
+      <form v-on:submit.prevent="updateUser()">
+        <h1>Edit User</h1>
+        <ul>
+          <li class="text-danger" v-for="error in errors" v-bind:key="error">
+            {{ error }}
+          </li>
+        </ul>
+        <div class="form-group">
+          <label>Name:</label>
+          <input type="text" class="form-control" v-model="user.name" placeholder="Name" />
+        </div>
+
+        <div class="form-group">
+          <label>Email:</label>
+          <input type="text" class="form-control" v-model="user.email" />
+        </div>
+        <div class="form-group">
+          <label>Password:</label>
+          <input type="password" class="form-control" v-model="user.password" />
+        </div>
+        <div class="form-group">
+          <label>Password Confirmation:</label>
+          <input type="password" class="form-control" v-model="user.password_confirmation" />
+        </div>
+
+        <input type="submit" class="btn btn-primary" value="Submit" />
+      </form>
+    </span>
+    <!-- delete user -->
   </div>
 </template>
 
@@ -17,6 +49,7 @@ export default {
     return {
       message: "User Show Page",
       user: {},
+      errors: [],
     };
   },
   created: function () {
@@ -25,6 +58,18 @@ export default {
       this.user = response.data;
     });
   },
-  methods: {},
+  methods: {
+    updateUser: function () {
+      axios
+        .patch(`/users/${this.user.id}`, this.user)
+        .then((response) => {
+          console.log("Edit User Object", response.data);
+        })
+        .catch((error) => {
+          this.errors = error.response.data.errors;
+          console.log(this.errors);
+        });
+    },
+  },
 };
 </script>
