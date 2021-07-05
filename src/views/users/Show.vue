@@ -37,6 +37,8 @@
       </form>
     </span>
     <!-- delete user -->
+    <br />
+    <button v-on:click="destroyUser()">Delete Account</button>
   </div>
 </template>
 
@@ -69,6 +71,20 @@ export default {
           this.errors = error.response.data.errors;
           console.log(this.errors);
         });
+    },
+    destroyUser: function () {
+      if (confirm("Are you sure you want to delete your account?")) {
+        axios
+          .delete(`/users/${this.user.id}`)
+          // .delete(`/users/${this.user.examples}`)
+          .then((response) => {
+            console.log(response.data);
+            this.$router.push("/logout");
+          })
+          .catch((error) => {
+            this.errors = error.response.data.errors;
+          });
+      }
     },
   },
 };
