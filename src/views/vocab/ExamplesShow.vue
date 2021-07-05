@@ -5,13 +5,12 @@
     <h1 id="word">{{ example.word }}</h1>
 
     <h3>YOUR PROMPT:</h3>
-    <div>
-      <h2 v-if="example.prompt.image_url === null">
-        {{ example.prompt.text }}
-      </h2>
-      <h2 v-else>
-        <img class="image" :src="example.prompt.image_url" alt="" />
-      </h2>
+    <div v-if="example.prompt.image_url === null">
+      {{ example.prompt.text }}
+    </div>
+
+    <div v-else>
+      <img class="image" :src="example.prompt.image_url" alt="" />
     </div>
 
     <h3>YOUR SENTENCE:</h3>

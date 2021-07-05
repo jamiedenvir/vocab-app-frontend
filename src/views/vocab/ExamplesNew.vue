@@ -1,7 +1,7 @@
 <template>
   <div class="examples-new">
     <!-- display word from words index -->
-    <h1>{{ word.example }}</h1>
+    <h1>{{ this.word.example }}</h1>
     <!-- prompts -->
 
     <div v-for="prompt in prompts" v-bind:key="prompt.id">
@@ -13,8 +13,8 @@
       </h2>
     </div>
     <!-- prompt randomizer -->
-    <p>{{ randomPrompt }}</p>
-    <button @click="promptRandomizer()">Get Prompt</button>
+    <!-- <p>{{ randomPrompt }}</p>
+    <button @click="promptRandomizer()">Get Prompt</button> -->
 
     <!-- create example -->
     <form v-on:submit.prevent="createExample()">
@@ -80,10 +80,10 @@ export default {
           this.status = error.response.status;
         });
     },
-    promptRandomizer: function () {
-      var chosenNumber = Math.floor(Math.random() * this.prompts.length);
-      this.randomPrompt = this.list[chosenNumber];
-    },
+    // promptRandomizer: function () {
+    //   var chosenNumber = Math.floor(Math.random() * this.prompts.length);
+    //   this.randomPrompt = this.list[chosenNumber];
+    // },
   },
 };
 </script>

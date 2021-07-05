@@ -16,9 +16,9 @@
     <router-link to="/examples">Examples Index</router-link>
     |
     <router-link to="/words">Words Index</router-link>
-    |
 
-    <router-link to="/examples/:id">Examples Show</router-link>
+    |
+    <router-link v-if="isLoggedIn()" :to="`/users/${getUserId()}`">Users Show</router-link>
 
     <router-view />
   </div>
@@ -59,7 +59,7 @@ export default {
       return localStorage.getItem("jwt");
     },
     getUserId: function () {
-      return localStorage.getItem("user_id");
+      return localStorage.user_id;
     },
   },
 };
