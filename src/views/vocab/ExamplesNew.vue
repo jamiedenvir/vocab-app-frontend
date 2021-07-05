@@ -1,20 +1,17 @@
 <template>
   <div class="examples-new">
     <!-- display word from words index -->
-    <h1>{{ this.word.example }}</h1>
+    <h1>{{ word }}</h1>
     <!-- prompts -->
 
-    <div v-for="prompt in prompts" v-bind:key="prompt.id">
-      <h2 v-if="prompt.image_url === null">
-        {{ prompt.text }}
-      </h2>
-      <h2 v-else>
-        <img class="image" :src="prompt.image_url" alt="" />
-      </h2>
-    </div>
-    <!-- prompt randomizer -->
-    <!-- <p>{{ randomPrompt }}</p>
-    <button @click="promptRandomizer()">Get Prompt</button> -->
+    <h2 v-if="randomPrompt.image_url === null">
+      {{ randomPrompt.text }}
+    </h2>
+    <h2 v-else>
+      <img class="image" :src="randomPrompt.image_url" alt="" />
+    </h2>
+    <button v-on:click="getRandomPrompt()">New Prompt</button>
+    <!-- {{ getRandomPrompt() }} -->
 
     <!-- create example -->
     <form v-on:submit.prevent="createExample()">
@@ -32,6 +29,7 @@
       </div>
       <input type="submit" class="btn btn-primary" value="Submit" />
     </form>
+    <h1>{{ newExampleParams }}</h1>
   </div>
 </template>
 
@@ -58,17 +56,18 @@ export default {
     };
   },
   created: function () {
-    // axios.get(`/words/${this.$route.word}`).then((response) => {
-    //   console.log("Words", response.data);
-    //   this.word = response.data;
-    // });
     axios.get("/prompts").then((response) => {
       console.log("Prompts array", response.data);
       this.prompts = response.data;
+      this.getRandomPrompt();
     });
+    this.word = this.$route.query.word;
   },
   methods: {
     createExample: function () {
+      this.newExampleParams.word = this.word;
+      this.newExampleParams.prompt_id = this.randomPrompt.id;
+
       axios
         .post("/examples", this.newExampleParams)
         .then((response) => {
@@ -80,10 +79,10 @@ export default {
           this.status = error.response.status;
         });
     },
-    // promptRandomizer: function () {
-    //   var chosenNumber = Math.floor(Math.random() * this.prompts.length);
-    //   this.randomPrompt = this.list[chosenNumber];
-    // },
+    getRandomPrompt: function () {
+      this.randomPrompt = this.prompts[Math.floor(Math.random() * this.prompts.length)];
+      console.log(this.randomPrompt);
+    },
   },
 };
 </script>

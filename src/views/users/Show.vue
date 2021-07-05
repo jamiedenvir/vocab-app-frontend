@@ -78,8 +78,10 @@ export default {
           .delete(`/users/${this.user.id}`)
           // .delete(`/users/${this.user.examples}`)
           .then((response) => {
+            localStorage.removeItem("jwt");
+            localStorage.removeItem("user_id");
             console.log(response.data);
-            this.$router.push("/logout");
+            this.$router.push("/signup");
           })
           .catch((error) => {
             this.errors = error.response.data.errors;

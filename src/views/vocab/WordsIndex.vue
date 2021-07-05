@@ -2,7 +2,7 @@
   <div class="words-index">
     <h1>Vocab Words</h1>
     <div v-for="word in words" v-bind:key="word">
-      <router-link :to="`examples/new`">
+      <router-link :to="`/examples/new?word=${word}`">
         <h2>{{ word }}</h2>
       </router-link>
     </div>
