@@ -2,7 +2,7 @@
   <div class="examples-show">
     <h5>(examples show page)</h5>
 
-    <h1 id="word">{{ example.word }}</h1>
+    <h1 id="word-show">{{ example.word }}</h1>
 
     <h3>YOUR PROMPT:</h3>
     <div v-if="example.prompt.image_url === null">
@@ -47,7 +47,7 @@
   width: 350px;
   height: auto;
 }
-#word {
+#word-show {
   font-size: 100px;
   color: rgb(205, 125, 232);
   font-family: monospace;
