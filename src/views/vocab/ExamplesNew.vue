@@ -2,14 +2,30 @@
   <div class="examples-new">
     <!-- display word from words index -->
     <h1 id="word-new">{{ word }}</h1>
-    <h4>{{ wordData.lexical_category }}</h4>
-    <h2>Definition: {{ wordData.definition[0] }}</h2>
-    <h2>Etymologies: {{ wordData.etymologies[0] }}</h2>
-    <h2>Synonyms:</h2>
-    <h3>{{ wordData.synonyms[0] }}</h3>
-    <h3>{{ wordData.synonyms[1] }}</h3>
-    <h3>{{ wordData.synonyms[2] }}</h3>
-    <h3>{{ wordData.synonyms[3] }}</h3>
+    <div>
+      <button v-on:click="showDef = !showDef">Show/Hide Definition</button>
+      <!-- <p v-bind:class="{ disabled: showInfo }"></p> -->
+      <div v-if="showDef">
+        <h4>{{ wordData.lexical_category }}</h4>
+        <h2>{{ wordData.definition[0] }}</h2>
+      </div>
+      <br />
+      <button v-on:click="showSyn = !showSyn">Show/Hide Synonyms</button>
+      <!-- <p v-bind:class="{ disabled: showInfo }"></p> -->
+      <div v-if="showSyn">
+        <h3>{{ wordData.synonyms[0] }}</h3>
+        <h3>{{ wordData.synonyms[1] }}</h3>
+        <h3>{{ wordData.synonyms[2] }}</h3>
+        <h3>{{ wordData.synonyms[3] }}</h3>
+      </div>
+      <br />
+
+      <button v-on:click="showEtym = !showEtym">Show/Hide Etymologies</button>
+      <!-- <p v-bind:class="{ disabled: showInfo }"></p> -->
+      <div v-if="showEtym">
+        <h2>{{ wordData.etymologies[0] }}</h2>
+      </div>
+    </div>
 
     <!-- prompts -->
 
@@ -68,6 +84,9 @@ export default {
       randomPrompt: "",
       // example: [],
       wordData: {},
+      showDef: false,
+      showSyn: false,
+      showEtym: false,
     };
   },
   created: function () {
@@ -75,7 +94,7 @@ export default {
     //   console.log("Examples array", response.data);
     //   this.examples = response.data;
     // });
-    // this.getRandomPrompt();
+    // this.getRandomPrompt;
     axios.get("/prompts").then((response) => {
       console.log("Prompts array", response.data);
       this.prompts = response.data;
