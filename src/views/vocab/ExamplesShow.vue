@@ -27,14 +27,10 @@
       </ul>
       <div class="form-group">
         <label>Sentence:</label>
-        <input
-          type="text"
-          class="form-control"
-          v-model="editExampleParams.sentence"
-          placeholder="Edit Your Sentence Here"
-        />
+        <input type="text" class="form-control" v-model="example.sentence" placeholder="Edit Your Sentence Here" />
       </div>
       <input type="submit" class="btn btn-primary" value="Submit" />
+      <button v-on:click="destroyExample()">Delete Example</button>
     </form>
   </div>
 </template>
@@ -60,7 +56,6 @@ export default {
   data: function () {
     return {
       example: {},
-      editExampleParams: {},
       errors: [],
     };
   },
@@ -72,15 +67,31 @@ export default {
   },
   methods: {
     updateExample: function () {
+      var params = {
+        sentence: this.example.sentence,
+      };
       axios
-        .patch(`/examples/${this.editExampleParams.id}`, this.editExampleParams)
+        .patch(`/examples/${this.example.id}`, params)
         .then((response) => {
           console.log(response.data);
-          this.$router.push(`/examples/${response.data.id}`);
+          // this.$router.push(`/examples/${response.data.id}`);
         })
         .catch((error) => {
           this.errors = error.response.data.errors;
         });
+    },
+    destroyExample: function () {
+      if (confirm("Are you sure you want to delete your example?")) {
+        axios
+          .delete(`/examples/${this.example.id}`)
+          .then((response) => {
+            console.log(response.data);
+            this.$router.push("/examples");
+          })
+          .catch((error) => {
+            this.errors = error.response.data.errors;
+          });
+      }
     },
   },
 };
