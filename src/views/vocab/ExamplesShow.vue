@@ -3,7 +3,14 @@
     <h5>(examples show page)</h5>
 
     <h1 id="word-show">{{ example.word }}</h1>
-    <h2>{{ wordData.definition[0] }}</h2>
+
+    <button v-on:click="wordInfo()">Show/Hide Definition</button>
+
+    <!-- <div v-if="wordData">
+      <h4>{{ wordData.lexical_category }}</h4>
+      <h2>{{ wordData.definition[0] }}</h2>
+    </div>
+    <br /> -->
 
     <h3>YOUR PROMPT:</h3>
     <div v-if="example.prompt.image_url === null">
@@ -61,6 +68,7 @@ export default {
       example: {},
       errors: [],
       wordData: {},
+      // word: "",
     };
   },
   created: function () {
@@ -68,12 +76,8 @@ export default {
       console.log("Example object", response.data);
       this.example = response.data;
     });
-    axios.get(`/worddata/${this.$route.params.word}`).then((response) => {
-      console.log("Word data", response.data);
-      this.wordData = response.data;
-    });
 
-    this.word = this.example.word;
+    // this.word = this.$route.query.word;
   },
   methods: {
     updateExample: function () {
@@ -102,6 +106,13 @@ export default {
             this.errors = error.response.data.errors;
           });
       }
+    },
+    wordInfo: function () {
+      axios.get(`/worddata/${this.example.word}`).then((response) => {
+        console.log("Word data", response.data);
+        this.wordData = response.data;
+      });
+      this.word = this.$route.query.word;
     },
   },
 };
