@@ -3,6 +3,7 @@
     <h5>(examples show page)</h5>
 
     <h1 id="word-show">{{ example.word }}</h1>
+    <h2>{{ wordData.definition[0] }}</h2>
 
     <h3>YOUR PROMPT:</h3>
     <div v-if="example.prompt.image_url === null">
@@ -30,6 +31,8 @@
         <input type="text" class="form-control" v-model="example.sentence" placeholder="Edit Your Sentence Here" />
       </div>
       <input type="submit" class="btn btn-primary" value="Submit" />
+      <br />
+      <br />
       <button v-on:click="destroyExample()">Delete Example</button>
     </form>
   </div>
@@ -57,6 +60,7 @@ export default {
     return {
       example: {},
       errors: [],
+      wordData: {},
     };
   },
   created: function () {
@@ -64,6 +68,12 @@ export default {
       console.log("Example object", response.data);
       this.example = response.data;
     });
+    axios.get(`/worddata/${this.$route.params.word}`).then((response) => {
+      console.log("Word data", response.data);
+      this.wordData = response.data;
+    });
+
+    this.word = this.example.word;
   },
   methods: {
     updateExample: function () {

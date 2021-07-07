@@ -42,7 +42,7 @@ export default {
           console.log(response.data);
           localStorage.setItem("jwt", response.data.jwt);
           localStorage.setItem("user_id", response.data.user_id);
-          this.$router.push("/");
+          this.$router.push("/words");
         })
         .catch((error) => {
           console.log(error.response);

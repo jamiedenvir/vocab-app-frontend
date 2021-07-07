@@ -4,14 +4,14 @@
     <h1 id="word-new">{{ word }}</h1>
     <div>
       <button v-on:click="showDef = !showDef">Show/Hide Definition</button>
-      <!-- <p v-bind:class="{ disabled: showInfo }"></p> -->
+
       <div v-if="showDef">
         <h4>{{ wordData.lexical_category }}</h4>
         <h2>{{ wordData.definition[0] }}</h2>
       </div>
       <br />
       <button v-on:click="showSyn = !showSyn">Show/Hide Synonyms</button>
-      <!-- <p v-bind:class="{ disabled: showInfo }"></p> -->
+
       <div v-if="showSyn">
         <h3>{{ wordData.synonyms[0] }}</h3>
         <h3>{{ wordData.synonyms[1] }}</h3>
@@ -21,7 +21,7 @@
       <br />
 
       <button v-on:click="showEtym = !showEtym">Show/Hide Etymologies</button>
-      <!-- <p v-bind:class="{ disabled: showInfo }"></p> -->
+
       <div v-if="showEtym">
         <h2>{{ wordData.etymologies[0] }}</h2>
       </div>
@@ -29,13 +29,15 @@
 
     <!-- prompts -->
 
-    <h2 v-if="randomPrompt.image_url === null">
-      {{ randomPrompt.text }}
-    </h2>
-    <h2 v-else>
-      <img class="image" :src="randomPrompt.image_url" alt="" />
-    </h2>
-    <button v-on:click="getRandomPrompt()">New Prompt</button>
+    <div>
+      <h2 v-if="randomPrompt.image_url === null">
+        {{ randomPrompt.text }}
+      </h2>
+      <h2 v-else>
+        <img class="image" :src="randomPrompt.image_url" alt="" />
+      </h2>
+      <button v-on:click="getRandomPrompt()">New Prompt</button>
+    </div>
 
     <!-- create example -->
     <form v-on:submit.prevent="createExample()">
@@ -81,6 +83,7 @@ export default {
       word: "",
       errors: [],
       prompts: [],
+      // prompt: this.randomPrompt,
       randomPrompt: "",
       // example: [],
       wordData: {},

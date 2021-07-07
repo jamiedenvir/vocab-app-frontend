@@ -4,20 +4,22 @@
       <div v-if="isLoggedIn()">
         <router-link to="/logout">Logout</router-link>
       </div>
-      <div v-if="!isLoggedIn()">
-        <router-link to="/login">Login</router-link>
-      </div>
       <div v-if="!isLoggedIn()" class="cta">
         <router-link to="/signup">Signup</router-link>
       </div>
+      <div v-if="!isLoggedIn()">
+        <router-link to="/login">Login</router-link>
+      </div>
     </div>
-    <router-link to="/">Home</router-link>
-    |
-    <router-link to="/examples">Examples Index</router-link>
-    |
-    <router-link to="/words">Words Index</router-link>
+    <div v-if="isLoggedIn()">
+      <router-link to="/examples">Examples Index</router-link>
+    </div>
+    <div v-if="isLoggedIn()">
+      <router-link to="/words">Words Index</router-link>
+    </div>
 
-    |
+    <!-- <router-link to="/">Home</router-link> -->
+
     <router-link v-if="isLoggedIn()" :to="`/users/${getUserId()}`">Users Show</router-link>
 
     <router-view />

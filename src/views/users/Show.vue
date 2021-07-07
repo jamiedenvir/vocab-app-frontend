@@ -8,33 +8,36 @@
 
     <!-- edit user -->
     <span>
-      <form v-on:submit.prevent="updateUser()">
-        <h1>Edit User</h1>
-        <ul>
-          <li class="text-danger" v-for="error in errors" v-bind:key="error">
-            {{ error }}
-          </li>
-        </ul>
-        <div class="form-group">
-          <label>Name:</label>
-          <input type="text" class="form-control" v-model="user.name" placeholder="Name" />
-        </div>
+      <button v-on:click="showEdit = !showEdit">Edit Your Info</button>
+      <div v-if="showEdit">
+        <form v-on:submit.prevent="updateUser()">
+          <h1>Edit User</h1>
+          <ul>
+            <li class="text-danger" v-for="error in errors" v-bind:key="error">
+              {{ error }}
+            </li>
+          </ul>
+          <div class="form-group">
+            <label>Name:</label>
+            <input type="text" class="form-control" v-model="user.name" placeholder="Name" />
+          </div>
 
-        <div class="form-group">
-          <label>Email:</label>
-          <input type="text" class="form-control" v-model="user.email" />
-        </div>
-        <div class="form-group">
-          <label>Password:</label>
-          <input type="password" class="form-control" v-model="user.password" />
-        </div>
-        <div class="form-group">
-          <label>Password Confirmation:</label>
-          <input type="password" class="form-control" v-model="user.password_confirmation" />
-        </div>
+          <div class="form-group">
+            <label>Email:</label>
+            <input type="text" class="form-control" v-model="user.email" />
+          </div>
+          <div class="form-group">
+            <label>Password:</label>
+            <input type="password" class="form-control" v-model="user.password" />
+          </div>
+          <div class="form-group">
+            <label>Password Confirmation:</label>
+            <input type="password" class="form-control" v-model="user.password_confirmation" />
+          </div>
 
-        <input type="submit" class="btn btn-primary" value="Submit" />
-      </form>
+          <input type="submit" class="btn btn-primary" value="Submit" />
+        </form>
+      </div>
     </span>
     <!-- delete user -->
     <br />
@@ -52,6 +55,7 @@ export default {
       message: "User Show Page",
       user: {},
       errors: [],
+      showEdit: false,
     };
   },
   created: function () {
