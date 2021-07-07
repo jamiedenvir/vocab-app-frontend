@@ -3,8 +3,13 @@
     <h5>(examples show page)</h5>
 
     <h1 id="word-show">{{ example.word }}</h1>
+    <h1>
+      Definition:
+      <br />
+      {{ wordData.definition[0] }}
+    </h1>
 
-    <button v-on:click="wordInfo()">Show/Hide Definition</button>
+    <!-- <button v-on:click="wordInfo()">Show/Hide Definition</button> -->
 
     <!-- <div v-if="wordData">
       <h4>{{ wordData.lexical_category }}</h4>
@@ -75,7 +80,13 @@ export default {
     axios.get(`/examples/${this.$route.params.id}`).then((response) => {
       console.log("Example object", response.data);
       this.example = response.data;
+      axios.get(`/worddata/${this.example.word}`).then((response) => {
+        console.log("Word data", response.data);
+        this.wordData = response.data;
+      });
     });
+
+    this.word = this.$route.query.word;
 
     // this.word = this.$route.query.word;
   },
@@ -107,13 +118,13 @@ export default {
           });
       }
     },
-    wordInfo: function () {
-      axios.get(`/worddata/${this.example.word}`).then((response) => {
-        console.log("Word data", response.data);
-        this.wordData = response.data;
-      });
-      this.word = this.$route.query.word;
-    },
+    // wordInfo: function () {
+    //   axios.get(`/worddata/${this.example.word}`).then((response) => {
+    //     console.log("Word data", response.data);
+    //     this.wordData = response.data;
+    //   });
+    //   this.word = this.$route.query.word;
+    // },
   },
 };
 </script>
