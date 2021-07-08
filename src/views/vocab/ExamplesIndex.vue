@@ -1,6 +1,7 @@
 <template>
   <div class="examples-index">
-    <h1>All Examples</h1>
+    <h1>My Examples</h1>
+    <!-- <h2>{{ user.name }}</h2> -->
     <div v-for="example in examples" v-bind:key="example.id">
       <router-link :to="`examples/${example.id}`">
         <h2>{{ example.word }}</h2>
@@ -27,6 +28,7 @@ export default {
   data: function () {
     return {
       examples: [],
+      // user: {},
     };
   },
   created: function () {
@@ -34,7 +36,18 @@ export default {
       console.log("Examples array", response.data);
       this.examples = response.data;
     });
+    // axios.get(`/users/${this.$route.params.id}`).then((response) => {
+    //   console.log("User object", response.data);
+    //   this.user = response.data;
+    // });
   },
-  methods: {},
+  methods: {
+    // userName: function () {
+    //   axios.get(`/users/${this.$route.params.id}`).then((response) => {
+    //     console.log("User object", response.data);
+    //     this.user.id = response.data;
+    //   });
+    // },
+  },
 };
 </script>

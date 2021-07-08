@@ -12,10 +12,10 @@
       </div>
     </div>
     <div v-if="isLoggedIn()">
-      <router-link to="/examples">Examples Index</router-link>
+      <router-link to="/words">Pick A New Vocab Word</router-link>
     </div>
     <div v-if="isLoggedIn()">
-      <router-link to="/words">Words Index</router-link>
+      <router-link to="/examples">My Examples</router-link>
     </div>
 
     <router-link v-if="isLoggedIn()" :to="`/users/${getUserId()}`">My Profile</router-link>

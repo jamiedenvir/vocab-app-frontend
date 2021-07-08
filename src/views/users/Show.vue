@@ -84,6 +84,7 @@ export default {
           .then((response) => {
             localStorage.removeItem("jwt");
             localStorage.removeItem("user_id");
+
             console.log(response.data);
             this.$router.push("/");
           })

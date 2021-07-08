@@ -26,27 +26,32 @@
       <img class="image" :src="example.prompt.image_url" alt="" />
     </div>
 
-    <h3>YOUR SENTENCE:</h3>
-    <h2>{{ example.sentence }}</h2>
+    <div v-if="!showEdit">
+      <h3>YOUR SENTENCE:</h3>
+      <h2>{{ example.sentence }}</h2>
+    </div>
 
     <!-- edit example sentence  -->
-
-    <form v-on:submit.prevent="updateExample()">
-      <h1>Edit Example</h1>
-      <ul>
-        <li class="text-danger" v-for="error in errors" v-bind:key="error">
-          {{ error }}
-        </li>
-      </ul>
-      <div class="form-group">
-        <label>Sentence:</label>
-        <input type="text" class="form-control" v-model="example.sentence" placeholder="Edit Your Sentence Here" />
+    <span>
+      <button v-on:click="showEdit = !showEdit">Edit Your Example Sentence</button>
+      <div v-if="showEdit">
+        <form v-on:submit.prevent="updateExample()">
+          <ul>
+            <li class="text-danger" v-for="error in errors" v-bind:key="error">
+              {{ error }}
+            </li>
+          </ul>
+          <div class="form-group">
+            <label>Make Changes to Your Example Sentence:</label>
+            <input type="text" class="form-control" v-model="example.sentence" placeholder="Edit Your Sentence Here" />
+          </div>
+          <input type="submit" class="btn btn-primary" value="Submit" />
+          <br />
+          <br />
+          <button v-on:click="destroyExample()">Delete Example</button>
+        </form>
       </div>
-      <input type="submit" class="btn btn-primary" value="Submit" />
-      <br />
-      <br />
-      <button v-on:click="destroyExample()">Delete Example</button>
-    </form>
+    </span>
   </div>
 </template>
 
@@ -73,6 +78,7 @@ export default {
       example: {},
       errors: [],
       wordData: {},
+      showEdit: false,
       // word: "",
     };
   },
