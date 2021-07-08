@@ -1,7 +1,7 @@
 <template>
   <div class="users-show">
     <h1>{{ message }}</h1>
-    <div>
+    <div v-if="!showEdit">
       <p>Name: {{ user.name }}</p>
       <p>Email: {{ user.email }}</p>
     </div>
@@ -27,11 +27,11 @@
             <input type="text" class="form-control" v-model="user.email" />
           </div>
           <div class="form-group">
-            <label>Password:</label>
+            <label>Update Password:</label>
             <input type="password" class="form-control" v-model="user.password" />
           </div>
           <div class="form-group">
-            <label>Password Confirmation:</label>
+            <label>Update Password Confirmation:</label>
             <input type="password" class="form-control" v-model="user.password_confirmation" />
           </div>
 

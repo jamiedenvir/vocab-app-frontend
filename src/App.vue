@@ -18,9 +18,7 @@
       <router-link to="/words">Words Index</router-link>
     </div>
 
-    <!-- <router-link to="/">Home</router-link> -->
-
-    <router-link v-if="isLoggedIn()" :to="`/users/${getUserId()}`">Users Show</router-link>
+    <router-link v-if="isLoggedIn()" :to="`/users/${getUserId()}`">My Profile</router-link>
 
     <router-view />
   </div>
