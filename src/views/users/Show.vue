@@ -85,7 +85,7 @@ export default {
             localStorage.removeItem("jwt");
             localStorage.removeItem("user_id");
             console.log(response.data);
-            this.$router.push("/signup");
+            this.$router.push("/");
           })
           .catch((error) => {
             this.errors = error.response.data.errors;
