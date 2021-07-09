@@ -26,7 +26,7 @@ export default {
         "amenable",
         "bacchanal",
         "baleful",
-        "behoove",
+
         "besmirch",
       ],
     };

@@ -10,6 +10,7 @@
         <h2>{{ wordData.definition[0] }}</h2>
       </div>
       <br />
+
       <button v-on:click="showSyn = !showSyn">Show/Hide Synonyms</button>
 
       <div v-if="showSyn">
@@ -17,6 +18,13 @@
         <h3>{{ wordData.synonyms[1] }}</h3>
         <h3>{{ wordData.synonyms[2] }}</h3>
         <h3>{{ wordData.synonyms[3] }}</h3>
+      </div>
+      <br />
+
+      <button v-on:click="showSentence = !showSentence">Show/Hide Pro Example Sentence</button>
+
+      <div v-if="showSentence">
+        <h3>{{ wordData.example_sentence }}</h3>
       </div>
       <br />
 
@@ -51,7 +59,7 @@
       <!-- new sentence form -->
       <div class="form-group">
         <label>Sentence:</label>
-        <input type="text" class="form-control" v-model="newExampleParams.sentence" />
+        <textarea type="text" class="form-control" v-model="newExampleParams.sentence" />
       </div>
       <input type="submit" class="btn btn-primary" value="Submit" />
     </form>
@@ -90,6 +98,7 @@ export default {
       showDef: false,
       showSyn: false,
       showEtym: false,
+      showSentence: false,
     };
   },
   created: function () {

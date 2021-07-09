@@ -1,20 +1,22 @@
 <template>
   <div class="examples-index">
     <h1>My Examples</h1>
+    <!-- <h2>{{ user.name }}</h2> -->
 
     <!-- sort alphabetically -->
-
-    <!-- <button v-on:click="setSortAttribute(this.example.word)" class="btn btn-success">
-      Sort Alphabetically
-      <span v-if="sortAttribute === 'word' && sortOrder === 1">^</span>
-      <span v-if="sortAttribute === 'word' && sortOrder === -1">v</span>
-    </button> -->
-    <!-- <h2>{{ user.name }}</h2> -->
-    <button v-on:click="sortWords()">Sort Words</button>
+    <div>
+      <h2 v-if="!aToZ">
+        <button v-on:click="reverseWords()">Sort: Z to A</button>
+      </h2>
+      <h2 v-else>
+        <button v-on:click="sortWords()">Sort: A to Z</button>
+      </h2>
+    </div>
 
     <div v-for="example in examples" v-bind:key="example.id">
       <router-link :to="`examples/${example.id}`">
         <h2>{{ example.word }}</h2>
+        <h2>{{ example.current_user }}</h2>
         <div>
           <h2 v-if="example.prompt.image_url === null">
             {{ example.prompt.text }}
@@ -40,8 +42,8 @@ export default {
   data: function () {
     return {
       examples: [],
-      aToZ: false,
-      // user: {},
+      aToZ: true,
+      user: {},
       // sortAttribute: this.example.word,
       // sortOrder: 1,
     };
@@ -51,6 +53,12 @@ export default {
       console.log("Examples array", response.data);
       this.examples = response.data;
     });
+
+    // axios.get(`/users/${this.user_id}`).then((response) => {
+    //   console.log("User object", response.data);
+    //   this.user = response.data;
+    // });
+
     // axios.get(`/users/${this.$route.params.id}`).then((response) => {
     //   console.log("User object", response.data);
     //   this.user = response.data;
@@ -67,6 +75,11 @@ export default {
     // },
     sortWords: function () {
       this.examples.sort((a, b) => (a.word > b.word ? 1 : -1));
+      this.aToZ = false;
+    },
+    reverseWords: function () {
+      this.examples.sort((a, b) => (b.word > a.word ? 1 : -1));
+      this.aToZ = true;
     },
   },
 };

@@ -72,6 +72,7 @@ export default {
         .patch(`/users/${this.user.id}`, this.user)
         .then((response) => {
           console.log("Edit User Object", response.data);
+          this.$router.push("/");
         })
         .catch((error) => {
           this.errors = error.response.data.errors;
