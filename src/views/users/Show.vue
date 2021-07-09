@@ -8,7 +8,9 @@
 
     <!-- edit user -->
     <span>
-      <button v-on:click="showEdit = !showEdit">Edit Your Info</button>
+      <div v-if="!showEdit">
+        <button v-on:click="showEdit = !showEdit">Edit Your Info</button>
+      </div>
       <div v-if="showEdit">
         <form v-on:submit.prevent="updateUser()">
           <h1>Edit User</h1>

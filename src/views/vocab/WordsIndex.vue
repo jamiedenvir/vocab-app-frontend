@@ -14,7 +14,21 @@
 export default {
   data: function () {
     return {
-      words: ["abase", "abate", "aberration", "abjure", "abnegate", "abound", "abrade", "abrogate"],
+      words: [
+        "abase",
+        "abate",
+        "aberration",
+        "abjure",
+        "abnegate",
+        "abound",
+        "abrade",
+        "abrogate",
+        "amenable",
+        "bacchanal",
+        "baleful",
+        "behoove",
+        "besmirch",
+      ],
     };
   },
   created: function () {},

@@ -1,7 +1,17 @@
 <template>
   <div class="examples-index">
     <h1>My Examples</h1>
+
+    <!-- sort alphabetically -->
+
+    <!-- <button v-on:click="setSortAttribute(this.example.word)" class="btn btn-success">
+      Sort Alphabetically
+      <span v-if="sortAttribute === 'word' && sortOrder === 1">^</span>
+      <span v-if="sortAttribute === 'word' && sortOrder === -1">v</span>
+    </button> -->
     <!-- <h2>{{ user.name }}</h2> -->
+    <button v-on:click="sortWords()">Sort Words</button>
+
     <div v-for="example in examples" v-bind:key="example.id">
       <router-link :to="`examples/${example.id}`">
         <h2>{{ example.word }}</h2>
@@ -24,11 +34,16 @@
 
 <script>
 import axios from "axios";
+import Vue2Filters from "vue2-filters";
 export default {
+  mixins: [Vue2Filters.mixin],
   data: function () {
     return {
       examples: [],
+      aToZ: false,
       // user: {},
+      // sortAttribute: this.example.word,
+      // sortOrder: 1,
     };
   },
   created: function () {
@@ -42,12 +57,17 @@ export default {
     // });
   },
   methods: {
-    // userName: function () {
-    //   axios.get(`/users/${this.$route.params.id}`).then((response) => {
-    //     console.log("User object", response.data);
-    //     this.user.id = response.data;
-    //   });
+    // setSortAttribute: function (attribute) {
+    //   if (this.sortAttribute === attribute) {
+    //     this.sortOrder = this.sortOrder * -1;
+    //   } else {
+    //     this.sortOrder = 1;
+    //     this.sortAttribute = attribute;
+    //   }
     // },
+    sortWords: function () {
+      this.examples.sort((a, b) => (a.word > b.word ? 1 : -1));
+    },
   },
 };
 </script>

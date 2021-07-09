@@ -33,7 +33,9 @@
 
     <!-- edit example sentence  -->
     <span>
-      <button v-on:click="showEdit = !showEdit">Edit Your Example Sentence</button>
+      <div v-if="!showEdit">
+        <button v-on:click="showEdit = !showEdit">Edit/Delete Your Example Sentence</button>
+      </div>
       <div v-if="showEdit">
         <form v-on:submit.prevent="updateExample()">
           <ul>
@@ -105,7 +107,7 @@ export default {
         .patch(`/examples/${this.example.id}`, params)
         .then((response) => {
           console.log(response.data);
-          // this.$router.push(`/examples/${response.data.id}`);
+          this.$router.push("/examples");
         })
         .catch((error) => {
           this.errors = error.response.data.errors;
