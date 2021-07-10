@@ -12,7 +12,7 @@ import axios from "axios";
 export default {
   data: function () {
     return {
-      message: "WELCOME to VocAPPulary",
+      message: "Welcome to UseYourWords",
     };
   },
   created: function () {},
