@@ -3,7 +3,12 @@
     <nav class="navbar navbar-static-top navbar-expand-lg header-sticky justify-content-between">
       <!-- ****come up with logo to put here**** -->
       <router-link class="navbar-brand" to="/">
-        <img class="img-fluid logo" src="/images/UYWLogo1.svg" alt="logo" />
+        <div class="nav navbar-nav">
+          <h5 id="my-icon">Use</h5>
+          <h3 id="my-icon-2">Your</h3>
+          <h1 id="my-icon-3">Words</h1>
+        </div>
+        <!-- <img class="img-fluid logo" src="/images/UYWLogo1.svg" alt="logo" /> -->
       </router-link>
 
       <!-- <button
@@ -17,10 +22,28 @@
       >
         <i class="fas fa-align-left"></i>
       </button> -->
+      <!-- ***My Nav Bar*** -->
+
       <div class="list-unstyled" id="navbarmenu">
         <ul class="nav navbar-nav">
-          <li class="nav-item"><a class="nav-link" href="about-us.html">About Us</a></li>
-          <li class="nav-item"><a class="nav-link" href="contact-us.html">Contact Us</a></li>
+          <li v-if="isLoggedIn()" class="nav-item">
+            <router-link class="nav-link" to="/words">Pick A New Vocab Word</router-link>
+          </li>
+          <li v-if="isLoggedIn()" class="nav-item">
+            <router-link class="nav-link" to="/examples">My Examples</router-link>
+          </li>
+          <li v-if="isLoggedIn()" class="nav-item">
+            <router-link class="nav-link" :to="`/users/${getUserId()}`">My Profile</router-link>
+          </li>
+          <li v-if="isLoggedIn()" class="nav-item">
+            <router-link class="nav-link" to="/logout">Logout</router-link>
+          </li>
+          <li v-if="!isLoggedIn()" class="nav-item">
+            <router-link class="nav-link" to="/login">Log In</router-link>
+          </li>
+          <li v-if="!isLoggedIn()" class="nav-item">
+            <router-link class="nav-link" to="/signup">Sign Up</router-link>
+          </li>
         </ul>
       </div>
       <!-- <div class="social">
@@ -51,32 +74,6 @@
         </ul>
       </div> -->
     </nav>
-
-    <div id="nav">
-      <router-link to="/">Home</router-link>
-
-      <div v-if="isLoggedIn()">
-        <router-link to="/logout">Logout</router-link>
-        <br />
-        <router-link to="/words">Pick A New Vocab Word</router-link>
-        <br />
-        <router-link to="/examples">My Examples</router-link>
-      </div>
-      <div v-if="!isLoggedIn()" class="cta">
-        <router-link to="/signup">Signup</router-link>
-      </div>
-      <div v-if="!isLoggedIn()">
-        <router-link to="/login">Login</router-link>
-      </div>
-    </div>
-    <!-- <div v-if="isLoggedIn()">
-      <router-link to="/words">Pick A New Vocab Word</router-link>
-    </div>
-    <div v-if="isLoggedIn()">
-      <router-link to="/examples">My Examples</router-link>
-    </div> -->
-
-    <router-link v-if="isLoggedIn()" :to="`/users/${getUserId()}`">My Profile</router-link>
 
     <router-view />
   </div>
