@@ -58,12 +58,24 @@
 }
 
 #examples-box {
-  width: 45%;
+  width: 25%;
 }
 
 #image-fit {
-  width: 100%;
+  width: 50%;
   height: auto;
+}
+
+#you-wrote {
+  font-size: 25px;
+  text-decoration: underline;
+  color: rgb(243, 137, 137);
+  font-family: monospace;
+}
+#you-wrote-2 {
+  font-size: 25px;
+  color: rgb(243, 137, 137);
+  font-family: monospace;
 }
 
 /* *****************************/

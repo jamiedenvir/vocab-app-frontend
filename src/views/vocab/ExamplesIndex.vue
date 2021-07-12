@@ -14,26 +14,19 @@
                 <div class="space-ptb">
                   <div class="product">
                     <div class="product-image">
-                      <h1>{{ example.word }}</h1>
-                      <h2 v-if="example.prompt.image_url === null">
-                        {{ example.prompt.text }}
-                      </h2>
-                      <h2 v-else>
-                        <img class="image" :src="example.prompt.image_url" alt="" id="image-fit" />
-                      </h2>
-                      <div class="product-overlay">
-                        <div class="add-to-cart">
-                          <router-link :to="`examples/${example.id}`">
-                            <span>{{ example.word }}</span>
+                      <router-link :to="`examples/${example.id}`">
+                        <h1>{{ example.word }}</h1>
+                        <h2 v-if="example.prompt.image_url === null">
+                          {{ example.prompt.text }}
+                        </h2>
+                        <h2 v-else>
+                          <img class="image" :src="example.prompt.image_url" alt="" id="image-fit" />
+                        </h2>
+                        <br />
+                        <h3 id="you-wrote">You Wrote:</h3>
 
-                            <p>
-                              Your Sentence
-                              <br />
-                              {{ example.sentence }}
-                            </p>
-                          </router-link>
-                        </div>
-                      </div>
+                        <h3 id="you-wrote-2">{{ example.sentence }}</h3>
+                      </router-link>
                     </div>
                   </div>
                 </div>

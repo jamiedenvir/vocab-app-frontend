@@ -13,13 +13,6 @@
 
             <p>{{ wordData.definition[0] }}</p>
 
-            <!-- <button v-on:click="wordInfo()">Show/Hide Definition</button> -->
-
-            <!-- <div v-if="wordData">
-      <h4>{{ wordData.lexical_category }}</h4>
-      <h2>{{ wordData.definition[0] }}</h2>
-    </div>
-    <br /> -->
             <br />
             <h3>YOUR PROMPT:</h3>
             <div v-if="example.prompt.image_url === null">
@@ -68,61 +61,6 @@
         </div>
       </div>
     </section>
-    <div>
-      <h1 id="word-show">{{ example.word }}</h1>
-      <h4>{{ wordData.lexical_category }}</h4>
-    </div>
-    <br />
-    <h2>Definition:</h2>
-
-    <p>{{ wordData.definition[0] }}</p>
-
-    <!-- <button v-on:click="wordInfo()">Show/Hide Definition</button> -->
-
-    <!-- <div v-if="wordData">
-      <h4>{{ wordData.lexical_category }}</h4>
-      <h2>{{ wordData.definition[0] }}</h2>
-    </div>
-    <br /> -->
-    <br />
-    <h3>YOUR PROMPT:</h3>
-    <div v-if="example.prompt.image_url === null">
-      <h3>{{ example.prompt.text }}</h3>
-    </div>
-
-    <div v-else>
-      <img class="image" :src="example.prompt.image_url" alt="" />
-    </div>
-
-    <br />
-    <div v-if="!showEdit">
-      <h3>YOUR SENTENCE:</h3>
-      <h2>{{ example.sentence }}</h2>
-    </div>
-
-    <!-- edit example sentence  -->
-    <span>
-      <div v-if="!showEdit">
-        <button v-on:click="showEdit = !showEdit">Edit/Delete Your Example Sentence</button>
-      </div>
-      <div v-if="showEdit">
-        <form v-on:submit.prevent="updateExample()">
-          <ul>
-            <li class="text-danger" v-for="error in errors" v-bind:key="error">
-              {{ error }}
-            </li>
-          </ul>
-          <div class="form-group">
-            <label>Make Changes to Your Example Sentence:</label>
-            <input type="text" class="form-control" v-model="example.sentence" placeholder="Edit Your Sentence Here" />
-          </div>
-          <input type="submit" class="btn btn-primary" value="Submit" />
-          <br />
-          <br />
-          <button v-on:click="destroyExample()">Delete Example</button>
-        </form>
-      </div>
-    </span>
   </div>
 </template>
 
