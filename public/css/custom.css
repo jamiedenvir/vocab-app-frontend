@@ -49,6 +49,23 @@
   font-weight: bold;
 }
 
+/* center align */
+.custom-center {
+  text-align: center;
+  color: #bb521f;
+  margin: auto;
+  width: 50%;
+}
+
+#examples-box {
+  width: 45%;
+}
+
+#image-fit {
+  width: 100%;
+  height: auto;
+}
+
 /* *****************************/
 /* button change */
 /* Product */
