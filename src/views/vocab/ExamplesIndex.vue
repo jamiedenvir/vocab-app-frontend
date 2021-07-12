@@ -3,7 +3,7 @@
     <section class="space-ptb">
       <div class="container">
         <div class="row">
-          <div class="col-lg-8">
+          <div class="col-lg-12">
             <div class="row mt-4">
               <div
                 v-for="example in orderBy(examples, 'word')"
@@ -14,20 +14,30 @@
                   <div class="product">
                     <div class="product-image">
                       <h1>{{ example.word }}</h1>
+                      <h2 v-if="example.prompt.image_url === null">
+                        {{ example.prompt.text }}
+                      </h2>
+                      <h2 v-else>
+                        <img class="image" :src="example.prompt.image_url" alt="" />
+                      </h2>
                       <div class="product-overlay">
                         <div class="add-to-cart">
                           <router-link :to="`examples/${example.id}`">
                             <span>{{ example.word }}</span>
 
-                            <div>
+                            <!-- <div>
                               <h2 v-if="example.prompt.image_url === null">
                                 {{ example.prompt.text }}
                               </h2>
                               <h2 v-else>
                                 <img class="image" :src="example.prompt.image_url" alt="" />
                               </h2>
-                            </div>
-                            <p>{{ example.sentence }}</p>
+                            </div> -->
+                            <p>
+                              Your Sentence
+                              <br />
+                              {{ example.sentence }}
+                            </p>
                           </router-link>
                         </div>
                       </div>

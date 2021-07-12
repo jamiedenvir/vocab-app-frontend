@@ -3,7 +3,7 @@
     <section class="space-ptb">
       <div class="container">
         <div class="row">
-          <div class="col-lg-8">
+          <div class="col-lg-12">
             <div class="row mt-4">
               <div v-for="word in words" v-bind:key="word" class="col-md-6 col-lg-4 col-sm-6 mb-5">
                 <div class="space-ptb">

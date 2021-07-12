@@ -1,74 +1,81 @@
 <template>
   <div class="examples-new">
+    <section class="o-hidden position-relative pt-5">
+      <div class="container">
+        <div class="row no-gutters justify-content-center bg-white">
+          <div class="col-lg-9 blog-single">
+            <h1 id="word-new">{{ word }}</h1>
+            <div>
+              <button v-on:click="showDef = !showDef">Show/Hide Definition</button>
+
+              <div v-if="showDef">
+                <h4>{{ wordData.lexical_category }}</h4>
+                <h2>{{ wordData.definition[0] }}</h2>
+              </div>
+              <br />
+
+              <button v-on:click="showSyn = !showSyn">Show/Hide Synonyms</button>
+
+              <div v-if="showSyn">
+                <h3>{{ wordData.synonyms[0] }}</h3>
+                <h3>{{ wordData.synonyms[1] }}</h3>
+                <h3>{{ wordData.synonyms[2] }}</h3>
+                <h3>{{ wordData.synonyms[3] }}</h3>
+              </div>
+              <br />
+
+              <button v-on:click="showSentence = !showSentence">Show/Hide Pro Example Sentence</button>
+
+              <div v-if="showSentence">
+                <h3>{{ wordData.example_sentence }}</h3>
+              </div>
+              <br />
+
+              <button v-on:click="showEtym = !showEtym">Show/Hide Etymologies</button>
+
+              <div v-if="showEtym">
+                <h2>{{ wordData.etymologies[0] }}</h2>
+              </div>
+            </div>
+
+            <!-- prompts -->
+
+            <div>
+              <h2 v-if="randomPrompt.image_url === null">
+                {{ randomPrompt.text }}
+              </h2>
+              <h2 v-else>
+                <img class="image" :src="randomPrompt.image_url" alt="" />
+              </h2>
+              <button v-on:click="getRandomPrompt()">New Prompt</button>
+            </div>
+
+            <!-- create example -->
+            <form v-on:submit.prevent="createExample()">
+              <h1>New Example</h1>
+              <!-- error handling -->
+              <ul>
+                <li class="text-danger" v-for="error in errors" v-bind:key="error">
+                  {{ error }}
+                </li>
+              </ul>
+              <!-- new sentence form -->
+              <div class="form-group">
+                <label>Sentence:</label>
+                <textarea type="text" class="form-control" v-model="newExampleParams.sentence" />
+              </div>
+              <input type="submit" class="btn btn-primary" value="Submit" />
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
     <!-- display word from words index -->
-    <h1 id="word-new">{{ word }}</h1>
-    <div>
-      <button v-on:click="showDef = !showDef">Show/Hide Definition</button>
-
-      <div v-if="showDef">
-        <h4>{{ wordData.lexical_category }}</h4>
-        <h2>{{ wordData.definition[0] }}</h2>
-      </div>
-      <br />
-
-      <button v-on:click="showSyn = !showSyn">Show/Hide Synonyms</button>
-
-      <div v-if="showSyn">
-        <h3>{{ wordData.synonyms[0] }}</h3>
-        <h3>{{ wordData.synonyms[1] }}</h3>
-        <h3>{{ wordData.synonyms[2] }}</h3>
-        <h3>{{ wordData.synonyms[3] }}</h3>
-      </div>
-      <br />
-
-      <button v-on:click="showSentence = !showSentence">Show/Hide Pro Example Sentence</button>
-
-      <div v-if="showSentence">
-        <h3>{{ wordData.example_sentence }}</h3>
-      </div>
-      <br />
-
-      <button v-on:click="showEtym = !showEtym">Show/Hide Etymologies</button>
-
-      <div v-if="showEtym">
-        <h2>{{ wordData.etymologies[0] }}</h2>
-      </div>
-    </div>
-
-    <!-- prompts -->
-
-    <div>
-      <h2 v-if="randomPrompt.image_url === null">
-        {{ randomPrompt.text }}
-      </h2>
-      <h2 v-else>
-        <img class="image" :src="randomPrompt.image_url" alt="" />
-      </h2>
-      <button v-on:click="getRandomPrompt()">New Prompt</button>
-    </div>
-
-    <!-- create example -->
-    <form v-on:submit.prevent="createExample()">
-      <h1>New Example</h1>
-      <!-- error handling -->
-      <ul>
-        <li class="text-danger" v-for="error in errors" v-bind:key="error">
-          {{ error }}
-        </li>
-      </ul>
-      <!-- new sentence form -->
-      <div class="form-group">
-        <label>Sentence:</label>
-        <textarea type="text" class="form-control" v-model="newExampleParams.sentence" />
-      </div>
-      <input type="submit" class="btn btn-primary" value="Submit" />
-    </form>
-    <h1>{{ newExampleParams }}</h1>
   </div>
 </template>
 
 <style>
-.text-danger {
+/* .text-danger {
   color: red;
 }
 .image {
@@ -79,7 +86,7 @@
   font-size: 100px;
   color: rgb(243, 137, 137);
   font-family: monospace;
-}
+} */
 </style>
 
 <script>

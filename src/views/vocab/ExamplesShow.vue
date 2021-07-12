@@ -1,6 +1,5 @@
 <template>
   <div class="examples-show">
-    <h5>(examples show page)</h5>
     <div>
       <h1 id="word-show">{{ example.word }}</h1>
       <h4>{{ wordData.lexical_category }}</h4>

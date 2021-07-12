@@ -12,3 +12,17 @@
 
 /* ***product-overlay for wordIndex buttons**** */
 /* ***brand-icon sizing***, line: 3183 */
+
+/* examplesNEW */
+.text-danger {
+  color: red;
+}
+.image {
+  width: 350px;
+  height: auto;
+}
+#word-new {
+  font-size: 100px;
+  color: rgb(243, 137, 137);
+  font-family: monospace;
+}
