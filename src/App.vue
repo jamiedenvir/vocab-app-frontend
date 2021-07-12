@@ -7,8 +7,8 @@
           <h5 id="my-icon">Use</h5>
           <h3 id="my-icon-2">Your</h3>
           <h1 id="my-icon-3">Words</h1>
+          <!-- <img class="img-fluid logo" src="/images/UYWLogo1.svg" alt="logo" /> -->
         </div>
-        <!-- <img class="img-fluid logo" src="/images/UYWLogo1.svg" alt="logo" /> -->
       </router-link>
 
       <!-- <button

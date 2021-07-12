@@ -3180,6 +3180,7 @@ input[type="radio"]:radio {
   margin-right: 0;
 }
 
+/* ***brand-icon sizing*** */
 .navbar-brand img {
   height: 36px;
 }
