@@ -9,7 +9,7 @@
                 <div class="space-ptb">
                   <div class="product">
                     <div class="product-image">
-                      <h1>{{ word }}</h1>
+                      <h1 :style="{ color: randomColor() }">{{ word }}</h1>
                       <div class="product-overlay">
                         <div class="add-to-cart">
                           <router-link :to="`/examples/new?word=${word}`">
@@ -97,10 +97,99 @@ export default {
         "bacchanal",
         "baleful",
         "besmirch",
+        "blight",
+        "bonhomie",
+        "bowdlerize",
+        "brogue",
+        "cadence",
+
+"caprice",
+
+clamorous
+
+cloying
+
+codependence
+
+comity
+
+congenital
+
+contretemps
+
+cosset
+
+coy
+
+de rigueur
+
+deluge
+
+denizen
+
+denuded
+
+deride
+
+diegetic
+
+discursive
+
+disquiet
+
+dissemble
+
+diurnal
+
+doleful
+
+
+
+effectuate
+
+egest
+
+ersatz
+
+fledgling
+
+
+homogeneous
+
+
+impugn
+
+incongruous
+
+inchoate
+
+inscribe
+
+inundate
+
+metaphysics
+
+ontology
+
+phenomenology
+
+proliferate
+
+purloin
+
+subsume
+svelte
       ],
+      colorCache: {},
     };
   },
   created: function () {},
-  methods: {},
+  methods: {
+    randomColor(id) {
+      const r = () => Math.floor(256 * Math.random());
+
+      return this.colorCache[id] || (this.colorCache[id] = `rgb(${r()}, ${r()}, ${r()})`);
+    },
+  },
 };
 </script>
