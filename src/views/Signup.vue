@@ -1,6 +1,39 @@
 <template>
   <div class="signup">
-    <form v-on:submit.prevent="submit()">
+    <section class="o-hidden position-relative pt-5">
+      <div class="container">
+        <div class="row no-gutters justify-content-center bg-white">
+          <div class="col-lg-9 blog-single">
+            <form v-on:submit.prevent="submit()">
+              <h1>Signup</h1>
+              <ul>
+                <li class="text-danger" v-for="error in errors" v-bind:key="error">
+                  {{ error }}
+                </li>
+              </ul>
+              <div class="form-group">
+                <label>Name:</label>
+                <input type="text" class="form-control" v-model="newUserParams.name" />
+              </div>
+              <div class="form-group">
+                <label>Email:</label>
+                <input type="email" class="form-control" v-model="newUserParams.email" />
+              </div>
+              <div class="form-group">
+                <label>Password:</label>
+                <input type="password" class="form-control" v-model="newUserParams.password" />
+              </div>
+              <div class="form-group">
+                <label>Password confirmation:</label>
+                <input type="password" class="form-control" v-model="newUserParams.password_confirmation" />
+              </div>
+              <input type="submit" class="btn btn-primary" value="Submit" />
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- <form v-on:submit.prevent="submit()">
       <h1>Signup</h1>
       <ul>
         <li class="text-danger" v-for="error in errors" v-bind:key="error">
@@ -24,7 +57,7 @@
         <input type="password" class="form-control" v-model="newUserParams.password_confirmation" />
       </div>
       <input type="submit" class="btn btn-primary" value="Submit" />
-    </form>
+    </form> -->
   </div>
 </template>
 

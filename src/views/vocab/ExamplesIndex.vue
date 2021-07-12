@@ -94,7 +94,7 @@
         </div>
       </div>
     </section>
-    <h1>My Examples</h1>
+    <!-- <h1>My Examples</h1>
 
     <div>
       <div v-for="example in orderBy(examples, 'word')" v-bind:key="example.id">
@@ -113,7 +113,7 @@
 
         <p>{{ example.sentence }}</p>
       </div>
-    </div>
+    </div> -->
   </div>
 </template>
 

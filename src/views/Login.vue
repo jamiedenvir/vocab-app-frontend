@@ -1,20 +1,28 @@
 <template>
   <div class="login">
-    <form v-on:submit.prevent="submit()">
-      <h1>Login</h1>
-      <ul>
-        <li v-for="error in errors" v-bind:key="error">{{ error }}</li>
-      </ul>
-      <div>
-        <label>Email:</label>
-        <input type="email" v-model="email" />
+    <section class="o-hidden position-relative pt-5">
+      <div class="container">
+        <div class="row no-gutters justify-content-center bg-white">
+          <div class="col-lg-9 blog-single">
+            <form v-on:submit.prevent="submit()">
+              <h1>Login</h1>
+              <ul>
+                <li v-for="error in errors" v-bind:key="error">{{ error }}</li>
+              </ul>
+              <div>
+                <label>Email:</label>
+                <input type="email" v-model="email" />
+              </div>
+              <div>
+                <label>Password:</label>
+                <input type="password" v-model="password" />
+              </div>
+              <input type="submit" value="Submit" />
+            </form>
+          </div>
+        </div>
       </div>
-      <div>
-        <label>Password:</label>
-        <input type="password" v-model="password" />
-      </div>
-      <input type="submit" value="Submit" />
-    </form>
+    </section>
   </div>
 </template>
 

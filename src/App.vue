@@ -27,7 +27,7 @@
       <div class="list-unstyled" id="navbarmenu">
         <ul class="nav navbar-nav">
           <li v-if="isLoggedIn()" class="nav-item">
-            <router-link class="nav-link" to="/words">Use A New Word</router-link>
+            <router-link class="nav-link" id="custom-fc-1" to="/words">Use A New Word</router-link>
           </li>
           <li v-if="isLoggedIn()" class="nav-item">
             <router-link class="nav-link" to="/examples">My Examples</router-link>

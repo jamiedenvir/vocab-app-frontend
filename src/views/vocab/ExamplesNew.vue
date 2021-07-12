@@ -4,7 +4,7 @@
       <div class="container">
         <div class="row no-gutters justify-content-center bg-white">
           <div class="col-lg-9 blog-single">
-            <h1 id="word-new">{{ word }}</h1>
+            <h1 id="word-show">{{ word }}</h1>
             <div>
               <button v-on:click="showDef = !showDef">Show/Hide Definition</button>
 

@@ -13,7 +13,7 @@
                       <div class="product-overlay">
                         <div class="add-to-cart">
                           <router-link :to="`/examples/new?word=${word}`">
-                            <span>Use {{ word }}</span>
+                            <span>Use it!</span>
                           </router-link>
                         </div>
                       </div>
@@ -70,12 +70,12 @@
         </div>
       </div>
     </section>
-    <h1>Vocab Words</h1>
+    <!-- <h1>Vocab Words</h1>
     <div v-for="word in words" v-bind:key="word">
       <router-link :to="`/examples/new?word=${word}`">
         <h2>{{ word }}</h2>
       </router-link>
-    </div>
+    </div> -->
   </div>
 </template>
 
