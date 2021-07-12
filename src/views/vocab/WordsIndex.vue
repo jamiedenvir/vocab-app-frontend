@@ -10,9 +10,9 @@
                   <div class="product">
                     <div class="product-image">
                       <h1 :style="{ color: randomColor() }">{{ word }}</h1>
-                      <div class="product-overlay">
+                      <div class="product-overlay" :style="{ color: randomColor() }">
                         <div class="add-to-cart">
-                          <router-link :to="`/examples/new?word=${word}`">
+                          <router-link :to="`/examples/new?word=${word}`" :style="{ color: randomColor() }">
                             <span>Use it!</span>
                           </router-link>
                         </div>
@@ -102,83 +102,43 @@ export default {
         "bowdlerize",
         "brogue",
         "cadence",
-
-"caprice",
-
-clamorous
-
-cloying
-
-codependence
-
-comity
-
-congenital
-
-contretemps
-
-cosset
-
-coy
-
-de rigueur
-
-deluge
-
-denizen
-
-denuded
-
-deride
-
-diegetic
-
-discursive
-
-disquiet
-
-dissemble
-
-diurnal
-
-doleful
-
-
-
-effectuate
-
-egest
-
-ersatz
-
-fledgling
-
-
-homogeneous
-
-
-impugn
-
-incongruous
-
-inchoate
-
-inscribe
-
-inundate
-
-metaphysics
-
-ontology
-
-phenomenology
-
-proliferate
-
-purloin
-
-subsume
-svelte
+        "caprice",
+        "clamorous",
+        "cloying",
+        "codependence",
+        "comity",
+        "congenital",
+        "contretemps",
+        "cosset",
+        "coy",
+        "de rigueur",
+        "deluge",
+        "denizen",
+        "denuded",
+        "deride",
+        "diegetic",
+        "discursive",
+        "disquiet",
+        "dissemble",
+        "diurnal",
+        "doleful",
+        "effectuate",
+        "egest",
+        "ersatz",
+        "fledgling",
+        "homogeneous",
+        "impugn",
+        "incongruous",
+        "inchoate",
+        "inscribe",
+        "inundate",
+        "metaphysics",
+        "ontology",
+        "phenomenology",
+        "proliferate",
+        "purloin",
+        "subsume",
+        "svelte",
       ],
       colorCache: {},
     };
