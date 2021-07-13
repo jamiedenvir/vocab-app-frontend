@@ -80,11 +80,33 @@
 
 /* ***buttons*** */
 #custom-button {
-  color: royalblue;
+  display: inline-block;
+  padding: 0.35em 1.2em;
+  border: 0.1em solid #ffffff;
+  margin: 0 0.3em 0.3em 0;
+  border-radius: 0.12em;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: "Roboto", sans-serif, bold;
+  font-weight: 400;
+  color: #e07a5f;
+  text-align: center;
+  transition: all 0.2s;
+}
+#custom-button:hover {
+  color: #000000;
+  background-color: #ffffff;
 }
 
 #center-text {
   text-align: center;
+}
+
+#custom-inline-display {
+  display: inline-block;
+
+  vertical-align: middle;
+  margin: 0 auto;
 }
 
 /* *****************************/
