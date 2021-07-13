@@ -2,58 +2,71 @@
   <div class="examples-new">
     <section class="o-hidden position-relative pt-5">
       <div class="container">
-        <div class="row no-gutters justify-content-center bg-white">
+        <div class="row no-gutters justify-content-center">
           <div class="col-lg-9 blog-single">
-            <h1 id="word-show">{{ word }}</h1>
+            <h1 class="display-3" id="my-icon-2">{{ word }}</h1>
+            <h6 id="my-icon-2">({{ wordData.lexical_category }})</h6>
             <div>
-              <div id="custom-inline-display">
-                <button v-on:click="showDef = !showDef" id="custom-button">Show/Hide Definition</button>
-
-                <div v-if="showDef">
-                  <h4>{{ wordData.lexical_category }}</h4>
-                  <h2>{{ wordData.definition[0] }}</h2>
-                </div>
-                <br />
-              </div>
-
-              <div id="custom-inline-display">
-                <button v-on:click="showSyn = !showSyn" id="custom-button">Show/Hide Synonyms</button>
-
-                <div v-if="showSyn">
-                  <h3>{{ wordData.synonyms[0] }}</h3>
-                  <h3>{{ wordData.synonyms[1] }}</h3>
-                  <h3>{{ wordData.synonyms[2] }}</h3>
-                  <h3>{{ wordData.synonyms[3] }}</h3>
-                </div>
-                <br />
-              </div>
-
-              <div id="custom-inline-display"></div>
-              <button v-on:click="showSentence = !showSentence" id="custom-button">
-                Show/Hide Pro Example Sentence
-              </button>
-
-              <div v-if="showSentence">
-                <h3>{{ wordData.example_sentence }}</h3>
-              </div>
               <br />
+              <h5>Still Learnin' the Word?</h5>
+              <div id="new-box-background">
+                <div id="custom-inline-display">
+                  <button v-on:click="showDef = !showDef" id="custom-button">Definition</button>
+
+                  <div v-if="showDef">
+                    <h6 class="display-7" id="my-icon-2">{{ wordData.definition[0] }}</h6>
+                  </div>
+                </div>
+
+                <div id="custom-inline-display">
+                  <button
+                    v-on:click="
+                      showSyn = !showSyn;
+                      !showDef;
+                    "
+                    id="custom-button"
+                  >
+                    Synonyms
+                  </button>
+
+                  <div v-if="showSyn">
+                    <div id="custom-inline-display">
+                      <h6 class="display-7" id="my-icon-2">
+                        {{ wordData.synonyms[0] }}, {{ wordData.synonyms[1] }}, {{ wordData.synonyms[2] }},
+                        {{ wordData.synonyms[3] }}
+                      </h6>
+                    </div>
+                  </div>
+                </div>
+
+                <div id="custom-inline-display"></div>
+                <br />
+                <button v-on:click="showSentence = !showSentence" id="custom-button">Example Sentence</button>
+
+                <div v-if="showSentence">
+                  <h6 id="my-icon-2">{{ wordData.example_sentence }}</h6>
+                </div>
+              </div>
 
               <!-- prompts -->
-
-              <div>
-                <h2 v-if="randomPrompt.image_url === null">
+              <h6 class="display-7" id="my-icon-2">Use this prompt...(or click for a new one)</h6>
+              <div v-on:click="getRandomPrompt()" id="custom-button-2">
+                <h2 v-if="randomPrompt.image_url === null" class="custom-center-2" id="new-box-background-3">
                   {{ randomPrompt.text }}
                 </h2>
-                <h2 v-else>
+                <h2 v-else class="custom-center-2" id="new-box-background-3">
                   <img class="image" :src="randomPrompt.image_url" alt="" />
                 </h2>
-                <button v-on:click="getRandomPrompt()" id="custom-button">New Prompt</button>
+                <br />
+                <!-- <div class="custom-center-2">
+                  <button v-on:click="getRandomPrompt()" id="custom-button">New Prompt</button>
+                </div> -->
               </div>
 
               <!-- create example -->
               <form v-on:submit.prevent="createExample()">
                 <br />
-                <h1>New Example</h1>
+
                 <!-- error handling -->
                 <ul>
                   <li class="text-danger" v-for="error in errors" v-bind:key="error">
@@ -62,17 +75,21 @@
                 </ul>
                 <!-- new sentence form -->
                 <div class="form-group">
-                  <label>Sentence:</label>
-                  <textarea type="text" class="form-control" v-model="newExampleParams.sentence" />
+                  <label class="display-6" id="my-icon-4">...To Use Your Word...</label>
+                  <textarea
+                    type="text"
+                    class="form-control"
+                    v-model="newExampleParams.sentence"
+                    placeholder="...here!"
+                  />
                 </div>
-                <input type="submit" class="btn btn-primary" value="Submit" />
+                <input type="submit" value="Submit" id="custom-button" />
               </form>
             </div>
           </div>
         </div>
       </div>
     </section>
-    <!-- display word from words index -->
   </div>
 </template>
 
@@ -119,6 +136,7 @@ export default {
     axios.get("/prompts").then((response) => {
       console.log("Prompts array", response.data);
       this.prompts = response.data;
+      this.getRandomPrompt();
     });
 
     axios.get(`/worddata/${this.$route.query.word}`).then((response) => {

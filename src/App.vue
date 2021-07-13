@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <header class="header header-transparent default header-sticky-dark" id="header-color-custom">
+    <header class="header header-transparent default header-sticky-dark">
       <nav class="navbar navbar-static-top navbar-expand-lg header-sticky justify-content-between">
         <!-- ****come up with logo to put here**** -->
         <router-link class="navbar-brand" to="/">

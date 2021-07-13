@@ -1,35 +1,50 @@
 <template>
   <div class="examples-index">
     <section class="space-ptb">
-      <h1 class="custom-center">Look What You've Done! (...In a good way. Good job.)</h1>
+      <h1 class="display-3" id="center-text">
+        <span id="my-icon">My</span>
+        <span id="my-icon-2">Writing</span>
+        <span id="my-icon-3">(So Far)</span>
+      </h1>
       <div class="container">
         <div class="row">
           <div class="col-lg-12">
             <div class="row mt-4">
               <div
-                v-for="example in orderBy(examples, 'word')"
+                v-for="(example, index) in orderBy(examples, 'word')"
                 v-bind:key="example.id"
                 class="col-md-6 col-lg-4 col-sm-6 mb-5"
               >
-                <div class="space-ptb">
-                  <div class="product">
-                    <div class="product-image">
-                      <router-link :to="`examples/${example.id}`">
-                        <h1>{{ example.word }}</h1>
-                        <h2 v-if="example.prompt.image_url === null">
-                          {{ example.prompt.text }}
-                        </h2>
-                        <h2 v-else>
-                          <img class="image" :src="example.prompt.image_url" alt="" id="image-fit" />
-                        </h2>
-                        <br />
-                        <h3 id="you-wrote">You Wrote:</h3>
+                <span>
+                  <div class="space-ptb">
+                    <div class="product">
+                      <div class="product-image">
+                        <router-link :to="`examples/${example.id}`">
+                          <div class="col-lg-6 mt-4" id="prompt-box-background">
+                            <h1 v-bind:style="{ color: colors[index % colors.length], backgroundColor: '' }">
+                              {{ example.word }}
+                            </h1>
+                            <h2
+                              v-if="example.prompt.image_url === null"
+                              v-bind:style="{ color: colors[(index % colors.length) - 1], backgroundColor: '' }"
+                            >
+                              <br />
+                              {{ example.prompt.text }}
+                            </h2>
+                            <h2 v-else>
+                              <img class="image" :src="example.prompt.image_url" alt="" id="image-fit" />
+                            </h2>
+                            <br />
+                            <br />
+                            <!-- <h3 id="you-wrote">I Wrote:</h3> -->
 
-                        <h3 id="you-wrote-2">{{ example.sentence }}</h3>
-                      </router-link>
+                            <h3 id="you-wrote-2">{{ example.sentence }}</h3>
+                          </div>
+                        </router-link>
+                      </div>
                     </div>
                   </div>
-                </div>
+                </span>
               </div>
 
               <!-- <div class="col-md-6 col-lg-4 col-sm-6 mb-5 mb-lg-0">
@@ -119,6 +134,7 @@ export default {
       user: {},
       // sortAttribute: this.example.word,
       // sortOrder: 1,
+      colors: ["#f2c7bb", "#cdd2d9", "#a3a6c2", "#c9ded3"],
     };
   },
   created: function () {
