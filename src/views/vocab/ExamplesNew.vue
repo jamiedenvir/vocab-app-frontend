@@ -6,7 +6,7 @@
           <div class="col-lg-9 blog-single">
             <h1 id="word-show">{{ word }}</h1>
             <div>
-              <button v-on:click="showDef = !showDef">Show/Hide Definition</button>
+              <button v-on:click="showDef = !showDef" id="custom-button">Show/Hide Definition</button>
 
               <div v-if="showDef">
                 <h4>{{ wordData.lexical_category }}</h4>
@@ -14,7 +14,7 @@
               </div>
               <br />
 
-              <button v-on:click="showSyn = !showSyn">Show/Hide Synonyms</button>
+              <button v-on:click="showSyn = !showSyn" id="custom-button">Show/Hide Synonyms</button>
 
               <div v-if="showSyn">
                 <h3>{{ wordData.synonyms[0] }}</h3>
@@ -24,14 +24,16 @@
               </div>
               <br />
 
-              <button v-on:click="showSentence = !showSentence">Show/Hide Pro Example Sentence</button>
+              <button v-on:click="showSentence = !showSentence" id="custom-button">
+                Show/Hide Pro Example Sentence
+              </button>
 
               <div v-if="showSentence">
                 <h3>{{ wordData.example_sentence }}</h3>
               </div>
               <br />
 
-              <button v-on:click="showEtym = !showEtym">Show/Hide Etymologies</button>
+              <button v-on:click="showEtym = !showEtym" id="custom-button">Show/Hide Etymologies</button>
 
               <div v-if="showEtym">
                 <h2>{{ wordData.etymologies[0] }}</h2>
@@ -47,11 +49,12 @@
               <h2 v-else>
                 <img class="image" :src="randomPrompt.image_url" alt="" />
               </h2>
-              <button v-on:click="getRandomPrompt()">New Prompt</button>
+              <button v-on:click="getRandomPrompt()" id="custom-button">New Prompt</button>
             </div>
 
             <!-- create example -->
             <form v-on:submit.prevent="createExample()">
+              <br />
               <h1>New Example</h1>
               <!-- error handling -->
               <ul>

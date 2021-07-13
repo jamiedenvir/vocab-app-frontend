@@ -1,12 +1,12 @@
 /* *****CUSTOM BY ME***** */
 #my-icon {
-  color: #e6c2bf;
+  color: #f2cc8f;
 }
 #my-icon-2 {
-  color: #fad02c;
+  color: #81b29a;
 }
 #my-icon-3 {
-  color: #b88917;
+  color: #e07a5f;
 }
 
 #custom-fc-1 {
@@ -26,8 +26,8 @@
   height: auto;
 }
 #word-new {
-  font-size: 100px;
-  color: rgb(243, 137, 137);
+  font-size: 50px;
+  color: #f2cc8f;
   font-family: monospace;
 }
 #new-button {
@@ -78,8 +78,17 @@
   font-family: monospace;
 }
 
+/* ***buttons*** */
+#custom-button {
+  color: royalblue;
+}
+
+#center-text {
+  text-align: center;
+}
+
 /* *****************************/
-/* button change */
+/* hover button change */
 /* Product */
 /* .product {
   text-align: center;
