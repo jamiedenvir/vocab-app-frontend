@@ -6,9 +6,14 @@
           <div class="col-lg-12">
             <div class="row mt-4">
               <div class="nav navbar-nav" id="center-text">
-                <h5 id="my-icon">Click</h5>
-                <h3 id="my-icon-2">A</h3>
-                <h1 id="my-icon-3">Word</h1>
+                <h5 class="display-1">
+                  <span id="my-icon">Click</span>
+
+                  <span id="my-icon-2">A</span>
+                  <span id="my-icon-3">Word</span>
+                </h5>
+                <!-- <h3 class="display-1" id="my-icon-2">A</h3> -->
+                <!-- <h1 class="display-1" id="my-icon-3">Word</h1> -->
                 <!-- <img class="img-fluid logo" src="/images/UYWLogo1.svg" alt="logo" /> -->
               </div>
               <div v-for="(word, index) in words" v-bind:key="word" class="col-md-6 col-lg-4 col-sm-6 mb-5">
@@ -218,7 +223,7 @@ export default {
       ],
 
       itemList: ["Item A", "Item B", "Item C", "Item D", "Item E"],
-      colors: ["#f2c7bb", "#cdd2d9", "#bbbfca", "#a3a6c2", "#c9ded3"],
+      colors: ["#f2c7bb", "#cdd2d9", "#a3a6c2", "#c9ded3"],
     };
   },
   created: function () {},

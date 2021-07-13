@@ -1,12 +1,20 @@
+body {
+  background-color: #8f7f70;
+}
+
+#header-color-custom {
+  background-color: #8f7f70;
+}
+
 /* *****CUSTOM BY ME***** */
 #my-icon {
-  color: #f2cc8f;
+  color: #f9e9ce;
 }
 #my-icon-2 {
-  color: #81b29a;
+  color: #c9ded3;
 }
 #my-icon-3 {
-  color: #e07a5f;
+  color: #f2c7bb;
 }
 
 #custom-fc-1 {

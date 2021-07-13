@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <header class="header header-transparent default header-sticky-dark">
+    <header class="header header-transparent default header-sticky-dark" id="header-color-custom">
       <nav class="navbar navbar-static-top navbar-expand-lg header-sticky justify-content-between">
         <!-- ****come up with logo to put here**** -->
         <router-link class="navbar-brand" to="/">
@@ -26,15 +26,15 @@
         <!-- ***My Nav Bar*** -->
 
         <div class="list-unstyled" id="navbarmenu">
-          <ul class="nav navbar-nav">
+          <ul class="nav navbar-nav" id="header-color-custom">
             <li v-if="isLoggedIn()" class="nav-item">
-              <router-link class="nav-link" id="custom-fc-1" to="/words">Use A New Word</router-link>
+              <router-link class="nav-link" id="my-icon-3" to="/words">Use A New Word</router-link>
             </li>
             <li v-if="isLoggedIn()" class="nav-item">
-              <router-link class="nav-link" to="/examples">My Examples</router-link>
+              <router-link class="nav-link" id="my-icon-2" to="/examples">My Examples</router-link>
             </li>
             <li v-if="isLoggedIn()" class="nav-item">
-              <router-link class="nav-link" :to="`/users/${getUserId()}`">My Profile</router-link>
+              <router-link class="nav-link" id="my-icon" :to="`/users/${getUserId()}`">My Profile</router-link>
             </li>
             <li v-if="isLoggedIn()" class="nav-item">
               <router-link class="nav-link" to="/logout">Logout</router-link>
