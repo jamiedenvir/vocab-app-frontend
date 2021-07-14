@@ -1,6 +1,5 @@
 <template>
   <div class="examples-new">
-    <!-- <div v-bind:style="{ backgroundColor: this.word }"></div> -->
     <section class="o-hidden position-relative">
       <div class="container">
         <div class="row no-gutters">
@@ -12,9 +11,10 @@
                   id="center-text"
                 >
                   <h1 class="display-1" id="my-icon-2">
-                    {{ word }}
+                    <span class="display-6" id="my-icon">↓</span>
+                    _{{ word }}_
+                    <span class="display-6" id="my-icon">↓</span>
                     <h6 id="my-icon-2">({{ wordData.lexical_category }})</h6>
-                    <h1 class="display-3" id="my-icon-2">↓</h1>
                   </h1>
                 </nav>
               </header>
@@ -23,14 +23,29 @@
         </div>
       </div>
     </section>
+
     <section class="space-ptb">
       <div class="container">
         <div class="row">
           <div class="col-lg-8">
             <div class="row">
               <div class="col-lg-6">
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <h1 class="display-1" id="my-icon-4">↓</h1>
+                <br />
                 <div>
-                  <h6 class="display-7" id="my-icon-2">Use this prompt...(or click for a new one)</h6>
+                  <h6 class="display-6" id="my-icon-2">
+                    Use this prompt...(or click for a new one)
+                    <span class="display-1" id="my-icon-4">→</span>
+                  </h6>
+                  <br />
                   <div v-on:click="getRandomPrompt()" id="custom-button-2">
                     <h2 v-if="randomPrompt.image_url === null" class="custom-center-2">
                       {{ randomPrompt.text }}
@@ -39,67 +54,52 @@
                       <img class="image" :src="randomPrompt.image_url" alt="" />
                     </h2>
                     <br />
-                    <!-- <div class="custom-center-2">
-                  <button v-on:click="getRandomPrompt()" id="custom-button">New Prompt</button>
-                </div> -->
                   </div>
-                  <!-- prompts -->
-                  <!-- <h6 class="display-7" id="my-icon-2">Use this prompt...(or click for a new one)</h6>
-                  <div v-on:click="getRandomPrompt()" id="custom-button-2">
-                    <h2 v-if="randomPrompt.image_url === null" class="custom-center-2" id="new-box-background-3">
-                      {{ randomPrompt.text }}
-                    </h2>
-                    <h2 v-else class="custom-center-2" id="new-box-background-3">
-                      <img class="image" :src="randomPrompt.image_url" alt="" />
-                    </h2>
-                    <br />
-                  </div> -->
 
                   <!-- create example -->
-
-                  <div class="my-4 d-flex align-items-center">
-                    <h1 class="display-1" id="my-icon-2">↳</h1>
-                    <form v-on:submit.prevent="createExample()">
-                      <br />
-
-                      <!-- error handling -->
-                      <ul>
-                        <li class="text-danger" v-for="error in errors" v-bind:key="error">
-                          {{ error }}
-                        </li>
-                      </ul>
-                      <!-- new sentence form -->
-
-                      <div class="form-group">
-                        <label class="display-6" id="my-icon-4">...To Use Your Word...</label>
-                        <textarea
-                          type="text"
-                          class="form-control"
-                          v-model="newExampleParams.sentence"
-                          placeholder="...here!"
-                        />
-                      </div>
-                      <input type="submit" value="Submit" id="custom-button" />
-                    </form>
-                  </div>
                 </div>
               </div>
             </div>
           </div>
           <div class="col-lg-4 mt-5 mt-lg-0">
-            <div class="blog-sidebar bg-white sidebar border">
-              <!-- <h6 class="display-7" id="my-icon-2">Use this prompt...(or click for a new one)</h6>
-              <div v-on:click="getRandomPrompt()" id="custom-button-2">
-                <h2 v-if="randomPrompt.image_url === null" class="custom-center-2" id="new-box-background-3">
-                  {{ randomPrompt.text }}
-                </h2>
-                <h2 v-else class="custom-center-2" id="new-box-background-3">
-                  <img class="image" :src="randomPrompt.image_url" alt="" />
-                </h2>
+            <div class="my-4 d-flex align-items-center">
+              <h1 class="display-1" id="my-icon-4">→</h1>
+              <form v-on:submit.prevent="createExample()">
                 <br />
-              </div> -->
-              <h5>Still Learnin' the Word? Take A Hint</h5>
-              <div id="new-box-background">
+
+                <!-- error handling -->
+                <ul>
+                  <li class="text-danger" v-for="error in errors" v-bind:key="error">
+                    {{ error }}
+                  </li>
+                </ul>
+                <!-- new sentence form -->
+                <br />
+                <div class="form-group">
+                  <br />
+                  <br />
+                  <br />
+                  <br />
+                  <br />
+                  <br />
+                  <br />
+                  <br />
+                  <br />
+                  <br />
+                  <label class="display-6" id="my-icon-4">...To Use Your Word...</label>
+                  <textarea
+                    type="text"
+                    class="form-control"
+                    v-model="newExampleParams.sentence"
+                    placeholder="...here!"
+                  />
+                </div>
+                <input type="submit" value="Submit" id="custom-button" />
+              </form>
+            </div>
+            <br />
+            <div class="blog-sidebar sidebar border">
+              <div>
                 <div>
                   <button v-on:click="showDef = !showDef" id="custom-button">Definition</button>
 
@@ -125,11 +125,8 @@
                   <h6 id="my-icon-2">{{ wordData.example_sentence }}</h6>
                 </div>
               </div>
+              <h1 class="display-6" id="my-icon-2">Still Learnin' the Word?</h1>
             </div>
-            <h1 class="display-1" id="my-icon-2">
-              <h1 class="display-1" id="my-icon-2">⤴</h1>
-              Still Learnin' the Word?
-            </h1>
           </div>
         </div>
       </div>

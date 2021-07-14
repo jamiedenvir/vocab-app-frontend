@@ -76,7 +76,36 @@
       </div> -->
       </nav>
     </header>
+
     <router-view />
+    <footer class="footer space-ptb bg-dark">
+      <div class="container">
+        <div class="row pb-2">
+          <div class="list-unstyled" id="navbarmenu">
+            <ul class="nav navbar-nav">
+              <li v-if="isLoggedIn()" class="nav-item">
+                <router-link class="nav-link" id="my-icon-3" to="/words">Use A New Word</router-link>
+              </li>
+              <li v-if="isLoggedIn()" class="nav-item">
+                <router-link class="nav-link" id="my-icon-2" to="/examples">My Examples</router-link>
+              </li>
+              <li v-if="isLoggedIn()" class="nav-item">
+                <router-link class="nav-link" id="my-icon" :to="`/users/${getUserId()}`">My Profile</router-link>
+              </li>
+              <li v-if="isLoggedIn()" class="nav-item">
+                <router-link class="nav-link" to="/logout">Logout</router-link>
+              </li>
+              <li v-if="!isLoggedIn()" class="nav-item">
+                <router-link class="nav-link" to="/login">Log In</router-link>
+              </li>
+              <li v-if="!isLoggedIn()" class="nav-item">
+                <router-link class="nav-link" to="/signup">Sign Up</router-link>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
   </div>
 </template>
 
