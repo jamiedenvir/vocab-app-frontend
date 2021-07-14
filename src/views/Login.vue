@@ -2,22 +2,26 @@
   <div class="login">
     <section class="o-hidden position-relative pt-5">
       <div class="container">
-        <div class="row no-gutters justify-content-center bg-white">
+        <div class="row no-gutters justify-content-center">
           <div class="col-lg-9 blog-single">
             <form v-on:submit.prevent="submit()">
-              <h1>Login</h1>
+              <h1 class="display-1" id="my-icon-3">⇣Login_</h1>
+              <br />
               <ul>
                 <li v-for="error in errors" v-bind:key="error">{{ error }}</li>
               </ul>
               <div>
-                <label>Email:</label>
+                <label id="my-icon-3">Email______</label>
                 <input type="email" v-model="email" />
               </div>
               <div>
-                <label>Password:</label>
+                <label id="my-icon-3">Password________</label>
                 <input type="password" v-model="password" />
+                <br />
               </div>
-              <input type="submit" value="Submit" />
+              <br />
+              <br />
+              <input type="submit" value="Submit" id="custom-button-3" />
             </form>
           </div>
         </div>

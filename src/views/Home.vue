@@ -2,7 +2,7 @@
   <div class="home">
     <section class="o-hidden position-relative pt-5">
       <div class="container">
-        <div class="row no-gutters justify-content-center bg-white">
+        <div class="row no-gutters justify-content-center">
           <div class="col-lg-9 blog-single">
             <h3 id="my-icon">~ Use</h3>
             <br />

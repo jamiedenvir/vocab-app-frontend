@@ -1,5 +1,6 @@
 <template>
   <div class="examples-new">
+    <!-- <div v-bind:style="{ backgroundColor: this.word }"></div> -->
     <section class="o-hidden position-relative">
       <div class="container">
         <div class="row no-gutters">
@@ -12,9 +13,9 @@
                 >
                   <h1 class="display-1" id="my-icon-2">
                     {{ word }}
+                    <h6 id="my-icon-2">({{ wordData.lexical_category }})</h6>
                     <h1 class="display-3" id="my-icon-2">↓</h1>
                   </h1>
-                  <h6 id="my-icon-2">({{ wordData.lexical_category }})</h6>
                 </nav>
               </header>
             </div>
@@ -137,6 +138,9 @@
 </template>
 
 <style>
+/* body {
+  background: "word";
+} */
 /* .text-danger {
   color: red;
 }

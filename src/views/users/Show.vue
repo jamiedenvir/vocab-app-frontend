@@ -2,18 +2,32 @@
   <div class="users-show">
     <section class="o-hidden position-relative pt-5">
       <div class="container">
-        <div class="row no-gutters justify-content-center bg-white">
+        <div class="row no-gutters justify-content-center">
           <div class="col-lg-9 blog-single">
-            <h1>My Profile</h1>
+            <h1 class="display-1" id="my-icon-3">{{ user.name }}'s Profile</h1>
+            <br />
             <div v-if="!showEdit">
-              <p>Name: {{ user.name }}</p>
-              <p>Email: {{ user.email }}</p>
+              <br />
+              <h3>
+                NAME
+                <h3 class="display-6" id="my-icon-3">{{ user.name }}</h3>
+                <br />
+              </h3>
+              <br />
+              <h3>
+                EMAIL
+                <h3 class="display-6" id="my-icon-3">{{ user.email }}</h3>
+                <br />
+              </h3>
+
+              <br />
             </div>
+            <br />
 
             <!-- edit user -->
             <span>
               <div v-if="!showEdit">
-                <button v-on:click="showEdit = !showEdit">Edit Your Info</button>
+                <button v-on:click="showEdit = !showEdit" id="custom-button-4">Edit Your Info</button>
               </div>
               <div v-if="showEdit">
                 <form v-on:submit.prevent="updateUser()">
@@ -47,7 +61,7 @@
             </span>
             <!-- delete user -->
             <br />
-            <button v-on:click="destroyUser()">Delete Account</button>
+            <button v-on:click="destroyUser()" id="custom-button-4">Delete Account</button>
           </div>
         </div>
       </div>
@@ -79,7 +93,7 @@ export default {
         .patch(`/users/${this.user.id}`, this.user)
         .then((response) => {
           console.log("Edit User Object", response.data);
-          this.$router.push("/");
+          this.$router.go();
         })
         .catch((error) => {
           this.errors = error.response.data.errors;

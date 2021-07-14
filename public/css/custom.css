@@ -2,6 +2,14 @@ body {
   background-color: #8f7f70;
 }
 
+#icon-margin {
+  margin-left: 15px;
+}
+
+/* .examples-new {
+  background: this.word;
+} */
+
 #prompt-box-background {
   background-color: #f9e9cefa;
   width: 350px;
@@ -135,6 +143,16 @@ body {
   font-weight: 50;
   letter-spacing: 1px;
 }
+#you-wrote-3 {
+  font-size: 18px;
+  color: #faf4ef;
+  /* background-color: #f2c7bb; */
+  font-family: Roboto;
+
+  font-style: italic;
+  font-weight: 50;
+  letter-spacing: 1px;
+}
 
 /* ***buttons*** */
 #custom-button {
@@ -170,6 +188,48 @@ body {
 #custom-button-2:hover {
   color: #f2c7bb;
   background-color: #f2c7bb;
+}
+#custom-button-3 {
+  display: inline-block;
+  padding: 0.25em 1em;
+  border: 0.1em solid #c9ded3;
+  margin: 0 0.3em 0.3em 0;
+  /* border-radius: 0.12em; */
+  border-radius: 100px;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: "Roboto", sans-serif, bold;
+  font-weight: 400;
+
+  color: #292111;
+  background-color: #c9ded3;
+  text-align: center;
+  transition: all 0.2s;
+}
+#custom-button-3:hover {
+  color: #c9ded3;
+  background-color: #292111;
+}
+#custom-button-4 {
+  display: inline-block;
+  padding: 0.25em 1em;
+  border: 0.1em solid #c9ded3;
+  margin: 0 0.3em 0.3em 0;
+  /* border-radius: 0.12em; */
+  border-radius: 100px;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: "Roboto", sans-serif, bold;
+  font-weight: 400;
+
+  color: #292111;
+  background-color: #f9e9ce;
+  text-align: center;
+  transition: all 0.2s;
+}
+#custom-button-4:hover {
+  color: #f9e9ce;
+  background-color: #292111;
 }
 
 #custom-button-submit {

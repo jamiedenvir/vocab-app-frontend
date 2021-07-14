@@ -3,11 +3,11 @@
     <header class="header header-transparent default header-sticky-dark">
       <nav class="navbar navbar-static-top navbar-expand-lg header-sticky justify-content-between">
         <!-- ****come up with logo to put here**** -->
-        <router-link class="navbar-brand" to="/">
+        <router-link class="navbar-brand" id="icon-margin" to="/">
           <div class="nav navbar-nav">
-            <h5 id="my-icon">Use</h5>
-            <h3 id="my-icon-2">Your</h3>
-            <h1 id="my-icon-3">Words</h1>
+            <h6 id="my-icon">⇣Use</h6>
+            <h5 id="my-icon-2">Your</h5>
+            <h3 id="my-icon-3">_Words</h3>
             <!-- <img class="img-fluid logo" src="/images/UYWLogo1.svg" alt="logo" /> -->
           </div>
         </router-link>

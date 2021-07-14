@@ -2,60 +2,72 @@
   <div class="examples-show">
     <section class="o-hidden position-relative pt-5">
       <div class="container">
-        <div class="row no-gutters justify-content-center bg-white">
+        <div class="row no-gutters justify-content-center">
           <div class="col-lg-9 blog-single">
             <div>
-              <h1 id="word-new">{{ example.word }}</h1>
-              <h4>{{ wordData.lexical_category }}</h4>
+              <h1 class="display-1" id="my-icon-3">{{ example.word }}</h1>
+              <h4 id="my-icon-2">{{ wordData.lexical_category }}</h4>
+            </div>
+
+            <div>
+              <p id="you-wrote-3">{{ wordData.definition[0] }}</p>
+              <br />
             </div>
             <br />
-            <h2>Definition:</h2>
-
-            <p>{{ wordData.definition[0] }}</p>
-
             <br />
-            <h3>YOUR PROMPT:</h3>
-            <div v-if="example.prompt.image_url === null">
-              <h3>{{ example.prompt.text }}</h3>
-            </div>
 
-            <div v-else>
-              <img class="image" :src="example.prompt.image_url" alt="" />
-            </div>
+            <span id="center-text">
+              <br />
+              <h3 id="my-icon">YOUR PROMPT:</h3>
+              <div v-if="example.prompt.image_url === null">
+                <h3>{{ example.prompt.text }}</h3>
+              </div>
 
-            <br />
-            <div v-if="!showEdit">
-              <h3>YOUR SENTENCE:</h3>
-              <h2>{{ example.sentence }}</h2>
-            </div>
+              <div v-else>
+                <img class="image" :src="example.prompt.image_url" alt="" id="custom-button" />
+              </div>
+            </span>
 
-            <!-- edit example sentence  -->
-            <span>
+            <span id="center-text">
+              <br />
               <div v-if="!showEdit">
-                <button v-on:click="showEdit = !showEdit">Edit/Delete Your Example Sentence</button>
+                <br />
+                <h5 class="display-3" id="my-icon-2">YOUR WORK:</h5>
+                <h2 id="you-wrote-3">{{ example.sentence }}</h2>
+                <br />
               </div>
-              <div v-if="showEdit">
-                <form v-on:submit.prevent="updateExample()">
-                  <ul>
-                    <li class="text-danger" v-for="error in errors" v-bind:key="error">
-                      {{ error }}
-                    </li>
-                  </ul>
-                  <div class="form-group">
-                    <label>Make Changes to Your Example Sentence:</label>
-                    <input
-                      type="text"
-                      class="form-control"
-                      v-model="example.sentence"
-                      placeholder="Edit Your Sentence Here"
-                    />
-                  </div>
-                  <input type="submit" class="btn btn-primary" value="Submit" />
-                  <br />
-                  <br />
-                  <button v-on:click="destroyExample()">Delete Example</button>
-                </form>
-              </div>
+
+              <!-- edit example sentence  -->
+
+              <span>
+                <div v-if="!showEdit">
+                  <button v-on:click="showEdit = !showEdit" id="custom-button-3">
+                    Edit/Delete Your Example Sentence
+                  </button>
+                </div>
+                <div v-if="showEdit">
+                  <form v-on:submit.prevent="updateExample()">
+                    <ul>
+                      <li class="text-danger" v-for="error in errors" v-bind:key="error">
+                        {{ error }}
+                      </li>
+                    </ul>
+                    <div class="form-group">
+                      <label>Make Changes to Your Example Sentence:</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        v-model="example.sentence"
+                        placeholder="Edit Your Sentence Here"
+                      />
+                    </div>
+                    <input type="submit" class="btn btn-primary" value="Submit" id="custom-button-4" />
+                    <br />
+                    <br />
+                    <button v-on:click="destroyExample()" id="custom-button-4">Delete Example</button>
+                  </form>
+                </div>
+              </span>
             </span>
           </div>
         </div>
@@ -95,6 +107,7 @@ export default {
     axios.get(`/examples/${this.$route.params.id}`).then((response) => {
       console.log("Example object", response.data);
       this.example = response.data;
+
       axios.get(`/worddata/${this.example.word}`).then((response) => {
         console.log("Word data", response.data);
         this.wordData = response.data;
@@ -114,7 +127,8 @@ export default {
         .patch(`/examples/${this.example.id}`, params)
         .then((response) => {
           console.log(response.data);
-          this.$router.push("/examples");
+
+          this.$router.go();
         })
         .catch((error) => {
           this.errors = error.response.data.errors;
