@@ -11,6 +11,8 @@
                   id="center-text"
                 >
                   <h1 class="display-1" id="my-icon-2">
+                    <span class="display-6" id="my-icon">___________</span>
+                    <br />
                     <span class="display-6" id="my-icon">↓</span>
                     _{{ word }}_
                     <span class="display-6" id="my-icon">↓</span>
@@ -38,29 +40,27 @@
                 <br />
                 <br />
                 <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
                 <h1 class="display-1" id="my-icon-4">↓</h1>
 
                 <div>
-                  <h1 class="display-6" id="my-icon-3">_use this prompt...(or click for a new one)</h1>
+                  <h2 id="my-icon-3">use this prompt...(or click for a new one)</h2>
                   <br />
-                  <div id="new-box-background">
-                    <div v-on:click="getRandomPrompt()" id="custom-button-2">
-                      <h2 v-if="randomPrompt.image_url === null" class="custom-center-2" id="my-icon">
+
+                  <div v-on:click="getRandomPrompt()" id="custom-button-2">
+                    <div id="new-box-background">
+                      <h2 v-if="randomPrompt.image_url === null" id="my-icon">
                         "{{ randomPrompt.text }}"
-                        <span class="display-1" id="my-icon-4">...............➚</span>
+                        <span class="display-1" id="my-icon-4">........➚</span>
                       </h2>
+
                       <h2 v-else>
-                        <img
-                          class="image"
-                          :src="randomPrompt.image_url"
-                          alt=""
-                          style="
-                             {
-                              width: 10px;
-                            }
-                          "
-                        />
-                        <span class="display-1" id="my-icon-4">.................➚</span>
+                        <img class="my-img" :src="randomPrompt.image_url" alt="" />
+                        <span class="display-1" id="my-icon-4">.........➚</span>
                       </h2>
                       <br />
                     </div>
@@ -96,6 +96,17 @@
                   <br />
                   <br />
                   <br />
+                  <br />
+                  <br />
+                  <br />
+                  <br />
+                  <br />
+                  <br />
+                  <br />
+                  <br />
+                  <br />
+                  <br />
+
                   <label class="display-6" id="my-icon-3">...To Use Your Word...</label>
                   <textarea
                     type="text"

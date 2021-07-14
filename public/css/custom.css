@@ -3,14 +3,15 @@ body {
   padding-bottom: 500px;
 }
 
-img {
-  width: 10px;
-  height: 10px;
+.my-img {
+  width: 100%;
+  height: 100%;
 
-  background-position: 50% 50%;
+  /* background-position: 50% 50%; */
   background-repeat: no-repeat;
-  background-size: 0px;
+  /* background-size: 0px; */
   border-radius: 100px;
+  object-fit: contain;
 }
 
 #icon-margin {
@@ -29,7 +30,7 @@ img {
   box-sizing: border-box;
 }
 #new-box-background {
-  box-sizing: border-box;
+  /* box-sizing: border-box; */
 
   /* margin-top: 100px; */
   margin-bottom: 50px;
@@ -66,19 +67,24 @@ img {
 /* *****CUSTOM BY ME***** */
 #my-icon {
   color: #f9e9ce;
+  font-family: monospace;
 }
 #my-icon-2 {
   color: #c9ded3;
+  font-family: monospace;
 }
 #my-icon-3 {
   color: #f2c7bb;
+  font-family: monospace;
 }
 #my-icon-4 {
   color: #a3a6c2;
+  font-family: monospace;
 }
 
 #custom-fc-1 {
   color: #0f7e8f;
+  font-family: monospace;
 }
 /* *****CUSTOM BY ME***** */
 
@@ -231,7 +237,7 @@ img {
   border-radius: 100px;
   box-sizing: border-box;
   text-decoration: none;
-  font-family: "Roboto", sans-serif, bold;
+  font-family: monospace, sans-serif, bold;
   font-weight: 400;
 
   color: #292111;
@@ -242,6 +248,27 @@ img {
 #custom-button-4:hover {
   color: #f9e9ce;
   background-color: #292111;
+}
+#custom-button-5 {
+  display: inline-block;
+  padding: 0.25em 1em;
+  border: 0.1em solid #c9ded3;
+  margin: 0 0.3em 0.3em 0;
+  /* border-radius: 0.12em; */
+  border-radius: 100px;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: monospace, sans-serif, bold;
+  font-weight: 400;
+
+  color: #f30404;
+  background-color: #f9e9ce;
+  text-align: center;
+  transition: all 0.2s;
+}
+#custom-button-5:hover {
+  color: #f9e9ce;
+  background-color: #f30404;
 }
 
 #custom-button-submit {

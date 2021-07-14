@@ -7,7 +7,7 @@
             <div class="display-3" id="my-icon-3">
               <h5 class="display-1">
                 <span class="display-5" id="my-icon">⇣</span>
-                <span id="my-icon-2">{{ user.name }}'s</span>
+                <span id="my-icon-2">{{ user.name }}'s/</span>
 
                 <span id="my-icon-3">Profile</span>
                 <span class="display-5" id="my-icon-4">⇣</span>
@@ -15,19 +15,26 @@
             </div>
 
             <br />
-            <div v-if="!showEdit">
+
+            <div>
               <br />
-              <h3>
-                NAME
-                <h3 class="display-6" id="my-icon-3">{{ user.name }}</h3>
-                <br />
-              </h3>
               <br />
-              <h3>
-                EMAIL
-                <h3 class="display-6" id="my-icon-2">{{ user.email }}</h3>
+              <br />
+              <br />
+              <h5>
+                NAME」
+
+                <h3 class="display-7" id="my-icon-3">
+                  {{ user.name }}
+                </h3>
                 <br />
-              </h3>
+              </h5>
+              <br />
+              <h5>
+                EMAIL」
+                <h3 class="display-7" id="my-icon-2">{{ user.email }}</h3>
+                <br />
+              </h5>
 
               <br />
             </div>
@@ -72,7 +79,17 @@
             </span>
             <!-- delete user -->
             <br />
-            <button v-on:click="destroyUser()" id="custom-button-4">Delete Account</button>
+            <button v-on:click="destroyUser()" id="custom-button-5">Delete Account</button>
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
           </div>
         </div>
       </div>

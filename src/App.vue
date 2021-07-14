@@ -6,8 +6,8 @@
         <router-link class="navbar-brand" id="icon-margin" to="/">
           <div class="nav navbar-nav">
             <h6 id="my-icon">⇣Use</h6>
-            <h5 id="my-icon-2">Your</h5>
-            <h3 id="my-icon-3">_Words</h3>
+            <span id="my-icon-2">Your</span>
+            <h4 id="my-icon-3">_______Words</h4>
             <!-- <img class="img-fluid logo" src="/images/UYWLogo1.svg" alt="logo" /> -->
           </div>
         </router-link>
