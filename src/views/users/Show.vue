@@ -4,7 +4,16 @@
       <div class="container">
         <div class="row no-gutters justify-content-center">
           <div class="col-lg-9 blog-single">
-            <h1 class="display-1" id="my-icon-3">{{ user.name }}'s Profile</h1>
+            <div class="display-3" id="my-icon-3">
+              <h5 class="display-1">
+                <span class="display-5" id="my-icon">⇣</span>
+                <span id="my-icon-2">{{ user.name }}'s</span>
+
+                <span id="my-icon-3">Profile</span>
+                <span class="display-5" id="my-icon-4">⇣</span>
+              </h5>
+            </div>
+
             <br />
             <div v-if="!showEdit">
               <br />
@@ -16,7 +25,7 @@
               <br />
               <h3>
                 EMAIL
-                <h3 class="display-6" id="my-icon-3">{{ user.email }}</h3>
+                <h3 class="display-6" id="my-icon-2">{{ user.email }}</h3>
                 <br />
               </h3>
 
@@ -31,32 +40,34 @@
               </div>
               <div v-if="showEdit">
                 <form v-on:submit.prevent="updateUser()">
-                  <h1>Edit User</h1>
+                  <h1 class="display-6" id="my-icon-4">Edit User</h1>
+                  <br />
                   <ul>
                     <li class="text-danger" v-for="error in errors" v-bind:key="error">
                       {{ error }}
                     </li>
                   </ul>
                   <div class="form-group">
-                    <label>Name:</label>
+                    <label id="my-icon-2">__Name</label>
                     <input type="text" class="form-control" v-model="user.name" placeholder="Name" />
                   </div>
 
                   <div class="form-group">
-                    <label>Email:</label>
+                    <label id="my-icon-2">___Email</label>
                     <input type="text" class="form-control" v-model="user.email" />
                   </div>
                   <div class="form-group">
-                    <label>Update Password:</label>
+                    <label id="my-icon-2">____Update Password</label>
                     <input type="password" class="form-control" v-model="user.password" />
                   </div>
                   <div class="form-group">
-                    <label>Update Password Confirmation:</label>
+                    <label id="my-icon-2">_____Update Password Confirmation</label>
                     <input type="password" class="form-control" v-model="user.password_confirmation" />
                   </div>
 
-                  <input type="submit" class="btn btn-primary" value="Submit" />
+                  <input type="submit" class="btn btn-primary" value="Submit" id="custom-button-4" />
                 </form>
+                <br />
               </div>
             </span>
             <!-- delete user -->

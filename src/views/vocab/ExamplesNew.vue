@@ -35,7 +35,7 @@
                     <h2 v-if="randomPrompt.image_url === null" class="custom-center-2">
                       {{ randomPrompt.text }}
                     </h2>
-                    <h2 v-else class="custom-center-2">
+                    <h2 v-else>
                       <img class="image" :src="randomPrompt.image_url" alt="" />
                     </h2>
                     <br />

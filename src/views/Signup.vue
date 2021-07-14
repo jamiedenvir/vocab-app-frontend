@@ -2,32 +2,33 @@
   <div class="signup">
     <section class="o-hidden position-relative pt-5">
       <div class="container">
-        <div class="row no-gutters justify-content-center bg-white">
+        <div class="row no-gutters justify-content-center">
           <div class="col-lg-9 blog-single">
             <form v-on:submit.prevent="submit()">
-              <h1>Signup</h1>
+              <h1 class="display-3" id="my-icon-3">Signup</h1>
               <ul>
                 <li class="text-danger" v-for="error in errors" v-bind:key="error">
                   {{ error }}
                 </li>
               </ul>
               <div class="form-group">
-                <label>Name:</label>
+                <label id="my-icon-2">Name</label>
                 <input type="text" class="form-control" v-model="newUserParams.name" />
               </div>
               <div class="form-group">
-                <label>Email:</label>
+                <label id="my-icon-2">Email</label>
                 <input type="email" class="form-control" v-model="newUserParams.email" />
               </div>
               <div class="form-group">
-                <label>Password:</label>
+                <label id="my-icon-2">Password</label>
                 <input type="password" class="form-control" v-model="newUserParams.password" />
               </div>
               <div class="form-group">
-                <label>Password confirmation:</label>
+                <label id="my-icon-2">Password confirmation</label>
                 <input type="password" class="form-control" v-model="newUserParams.password_confirmation" />
               </div>
-              <input type="submit" class="btn btn-primary" value="Submit" />
+              <br />
+              <input type="submit" class="btn btn-primary" value="Submit" id="custom-button-4" />
             </form>
           </div>
         </div>
