@@ -39,21 +39,31 @@
                 <br />
                 <br />
                 <h1 class="display-1" id="my-icon-4">↓</h1>
-                <br />
+
                 <div>
-                  <h6 class="display-6" id="my-icon-2">
-                    Use this prompt...(or click for a new one)
-                    <span class="display-1" id="my-icon-4">→</span>
-                  </h6>
+                  <h1 class="display-6" id="my-icon-3">_use this prompt...(or click for a new one)</h1>
                   <br />
-                  <div v-on:click="getRandomPrompt()" id="custom-button-2">
-                    <h2 v-if="randomPrompt.image_url === null" class="custom-center-2">
-                      {{ randomPrompt.text }}
-                    </h2>
-                    <h2 v-else>
-                      <img class="image" :src="randomPrompt.image_url" alt="" />
-                    </h2>
-                    <br />
+                  <div id="new-box-background">
+                    <div v-on:click="getRandomPrompt()" id="custom-button-2">
+                      <h2 v-if="randomPrompt.image_url === null" class="custom-center-2" id="my-icon">
+                        "{{ randomPrompt.text }}"
+                        <span class="display-1" id="my-icon-4">...............➚</span>
+                      </h2>
+                      <h2 v-else>
+                        <img
+                          class="image"
+                          :src="randomPrompt.image_url"
+                          alt=""
+                          style="
+                             {
+                              width: 10px;
+                            }
+                          "
+                        />
+                        <span class="display-1" id="my-icon-4">.................➚</span>
+                      </h2>
+                      <br />
+                    </div>
                   </div>
 
                   <!-- create example -->
@@ -63,7 +73,7 @@
           </div>
           <div class="col-lg-4 mt-5 mt-lg-0">
             <div class="my-4 d-flex align-items-center">
-              <h1 class="display-1" id="my-icon-4">→</h1>
+              <h1 class="display-1" id="my-icon-4">↴</h1>
               <form v-on:submit.prevent="createExample()">
                 <br />
 
@@ -86,7 +96,7 @@
                   <br />
                   <br />
                   <br />
-                  <label class="display-6" id="my-icon-4">...To Use Your Word...</label>
+                  <label class="display-6" id="my-icon-3">...To Use Your Word...</label>
                   <textarea
                     type="text"
                     class="form-control"
