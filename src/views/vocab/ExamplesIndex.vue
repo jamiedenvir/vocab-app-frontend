@@ -32,7 +32,7 @@
                               {{ example.prompt.text }}
                             </h2>
                             <h2 v-else>
-                              <img class="image" :src="example.prompt.image_url" alt="" id="image-fit" />
+                              <img class="my-img" :src="example.prompt.image_url" alt="" id="image-fit" />
                             </h2>
                             <br />
                             <br />

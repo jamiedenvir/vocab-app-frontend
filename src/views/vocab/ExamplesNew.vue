@@ -13,9 +13,9 @@
                   <h1 class="display-1" id="my-icon-2">
                     <span class="display-6" id="my-icon">___________</span>
                     <br />
-                    <span class="display-6" id="my-icon">↓</span>
+                    <span class="display-6" id="my-icon-4">↓</span>
                     _{{ word }}_
-                    <span class="display-6" id="my-icon">↓</span>
+                    <span class="display-6" id="my-icon-4">↓</span>
                     <h6 id="my-icon-2">({{ wordData.lexical_category }})</h6>
                   </h1>
                 </nav>
@@ -53,7 +53,7 @@
 
                   <div v-on:click="getRandomPrompt()" id="custom-button-2">
                     <div id="new-box-background">
-                      <h2 v-if="randomPrompt.image_url === null" id="my-icon">
+                      <h2 v-if="randomPrompt.image_url === null" id="my-icon-5">
                         "{{ randomPrompt.text }}"
                         <span class="display-1" id="my-icon-4">........➚</span>
                       </h2>
@@ -118,35 +118,35 @@
                 <input type="submit" value="Submit" id="custom-button" />
               </form>
             </div>
-            <br />
+
+            <span class="display-7" id="my-icon-2">[i, um, don't know what {{ word }} means]</span>
             <div class="blog-sidebar sidebar border">
               <div>
                 <div>
                   <button v-on:click="showDef = !showDef" id="custom-button">Definition</button>
 
                   <div v-if="showDef">
-                    <h6 class="display-7" id="my-icon-2">{{ wordData.definition[0] }}</h6>
+                    <h6 class="display-7" id="my-icon-6">{{ wordData.definition[0] }}</h6>
                   </div>
                 </div>
 
                 <div>
-                  <button v-on:click="showSyn = !showSyn" id="custom-button">Synonyms</button>
+                  <button v-on:click="showSyn = !showSyn" id="custom-button-4">Synonyms</button>
 
                   <div v-if="showSyn">
-                    <h6 class="display-7" id="my-icon-2">
+                    <h6 class="display-7" id="my-icon-6">
                       {{ wordData.synonyms[0] }}, {{ wordData.synonyms[1] }}, {{ wordData.synonyms[2] }},
                       {{ wordData.synonyms[3] }}
                     </h6>
                   </div>
                 </div>
 
-                <button v-on:click="showSentence = !showSentence" id="custom-button">Example Sentence</button>
+                <button v-on:click="showSentence = !showSentence" id="custom-button-3">Example Sentence</button>
 
                 <div v-if="showSentence">
-                  <h6 id="my-icon-2">{{ wordData.example_sentence }}</h6>
+                  <h6 id="my-icon-6">{{ wordData.example_sentence }}</h6>
                 </div>
               </div>
-              <h1 class="display-6" id="my-icon-2">Still Learnin' the Word?</h1>
             </div>
           </div>
         </div>

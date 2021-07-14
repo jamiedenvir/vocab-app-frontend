@@ -211,7 +211,7 @@ export default {
         "inundate",
         "metaphysics",
         "ontology",
-        "phenomenology",
+
         "proliferate",
         "purloin",
         "subsume",

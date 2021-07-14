@@ -37,7 +37,7 @@
               <router-link class="nav-link" id="my-icon" :to="`/users/${getUserId()}`">My Profile</router-link>
             </li>
             <li v-if="isLoggedIn()" class="nav-item">
-              <router-link class="nav-link" to="/logout">Logout</router-link>
+              <router-link class="nav-link" to="/logout" id="my-icon-4">Logout</router-link>
             </li>
             <li v-if="!isLoggedIn()" class="nav-item">
               <router-link class="nav-link" to="/login">Log In</router-link>
@@ -78,7 +78,7 @@
     </header>
 
     <router-view />
-    <footer class="footer space-ptb bg-dark">
+    <!-- <footer class="footer space-ptb bg-dark">
       <div class="container">
         <div class="row pb-2">
           <div class="list-unstyled" id="navbarmenu">
@@ -105,7 +105,7 @@
           </div>
         </div>
       </div>
-    </footer>
+    </footer> -->
   </div>
 </template>
 

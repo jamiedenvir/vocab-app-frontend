@@ -6,11 +6,11 @@
           <div class="col-lg-9 blog-single">
             <div class="display-3" id="my-icon-3">
               <h5 class="display-1">
-                <span class="display-5" id="my-icon">⇣</span>
-                <span id="my-icon-2">{{ user.name }}'s/</span>
+                <span class="display-5" id="my-icon">「</span>
+                <span id="my-icon-2">{{ user.name }}'s</span>
 
                 <span id="my-icon-3">Profile</span>
-                <span class="display-5" id="my-icon-4">⇣</span>
+                <span class="display-5" id="my-icon-4">」</span>
               </h5>
             </div>
 
@@ -47,28 +47,28 @@
               </div>
               <div v-if="showEdit">
                 <form v-on:submit.prevent="updateUser()">
-                  <h1 class="display-6" id="my-icon-4">Edit User</h1>
-                  <br />
+                  <h5>Edit User」</h5>
+
                   <ul>
                     <li class="text-danger" v-for="error in errors" v-bind:key="error">
                       {{ error }}
                     </li>
                   </ul>
                   <div class="form-group">
-                    <label id="my-icon-2">__Name</label>
+                    <label id="my-icon-2">「Name」</label>
                     <input type="text" class="form-control" v-model="user.name" placeholder="Name" />
                   </div>
 
                   <div class="form-group">
-                    <label id="my-icon-2">___Email</label>
+                    <label id="my-icon-2">「Email」</label>
                     <input type="text" class="form-control" v-model="user.email" />
                   </div>
                   <div class="form-group">
-                    <label id="my-icon-2">____Update Password</label>
+                    <label id="my-icon-2">「Update Password」</label>
                     <input type="password" class="form-control" v-model="user.password" />
                   </div>
                   <div class="form-group">
-                    <label id="my-icon-2">_____Update Password Confirmation</label>
+                    <label id="my-icon-2">「Update Password Confirmation」</label>
                     <input type="password" class="form-control" v-model="user.password_confirmation" />
                   </div>
 
