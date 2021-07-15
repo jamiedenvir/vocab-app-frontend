@@ -4,14 +4,15 @@
       <div class="container">
         <div class="row no-gutters justify-content-center">
           <div class="col-lg-9 blog-single">
-            <h3 id="my-icon">~ Use</h3>
-            <br />
-
-            <br />
-            <h2 id="my-icon-2">~~~ Your</h2>
-            <br />
-            <br />
-            <h1 id="my-icon-3">~ ~ ~ ~ Words</h1>
+            <span class="display-3" id="my-icon-5">
+              <span class="display-3" id="my-icon">
+                Use
+                <span id="my-icon-2">
+                  Your
+                  <span id="my-icon-3">Words !</span>
+                </span>
+              </span>
+            </span>
           </div>
         </div>
       </div>

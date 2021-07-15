@@ -8,7 +8,7 @@
               <header class="header header-transparent default header-sticky-dark" id="center-text">
                 <nav
                   class="navbar navbar-static-top navbar-expand-lg header-sticky justify-content-between"
-                  id="center-text"
+                  id="custom-padding"
                 >
                   <h1 class="display-1" id="my-icon-2">
                     <span class="display-6" id="my-icon">___________</span>
@@ -53,8 +53,8 @@
 
                   <div v-on:click="getRandomPrompt()" id="custom-button-2">
                     <div id="new-box-background">
-                      <h2 v-if="randomPrompt.image_url === null" id="my-icon-5">
-                        "{{ randomPrompt.text }}"
+                      <h2 v-if="randomPrompt.image_url === null" id="my-icon-4">
+                        [{{ randomPrompt.text }}]
                         <span class="display-1" id="my-icon-4">........➚</span>
                       </h2>
 
@@ -107,7 +107,7 @@
                   <br />
                   <br />
 
-                  <label class="display-6" id="my-icon-3">...To Use Your Word...</label>
+                  <h2 id="my-icon-3">...To Use Your Word...</h2>
                   <textarea
                     type="text"
                     class="form-control"
@@ -126,7 +126,7 @@
                   <button v-on:click="showDef = !showDef" id="custom-button">Definition</button>
 
                   <div v-if="showDef">
-                    <h6 class="display-7" id="my-icon-6">{{ wordData.definition[0] }}</h6>
+                    <h6 class="display-7" id="my-icon-7">{{ wordData.definition[0] }}</h6>
                   </div>
                 </div>
 

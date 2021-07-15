@@ -3,6 +3,7 @@
     <header class="header header-transparent default header-sticky-dark">
       <nav class="navbar navbar-static-top navbar-expand-lg header-sticky justify-content-between">
         <!-- ****come up with logo to put here**** -->
+
         <router-link class="navbar-brand" id="icon-margin" to="/">
           <div class="nav navbar-nav">
             <h6 id="my-icon">⇣Use</h6>
@@ -30,9 +31,13 @@
             <li v-if="isLoggedIn()" class="nav-item">
               <router-link class="nav-link" id="my-icon-3" to="/words">Use A New Word</router-link>
             </li>
+
             <li v-if="isLoggedIn()" class="nav-item">
-              <router-link class="nav-link" id="my-icon-2" to="/examples">My Examples</router-link>
+              <transition name="fade">
+                <router-link class="nav-link" id="my-icon-2" to="/examples">My Examples</router-link>
+              </transition>
             </li>
+
             <li v-if="isLoggedIn()" class="nav-item">
               <router-link class="nav-link" id="my-icon" :to="`/users/${getUserId()}`">My Profile</router-link>
             </li>
@@ -78,6 +83,7 @@
     </header>
 
     <router-view />
+
     <!-- <footer class="footer space-ptb bg-dark">
       <div class="container">
         <div class="row pb-2">

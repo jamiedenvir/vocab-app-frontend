@@ -17,7 +17,7 @@
                 <div class="space-ptb">
                   <div class="product">
                     <div class="product-image">
-                      <router-link :to="`/examples/new?word=${word}`">
+                      <router-link @click.native="scrollToTop()" :to="`/examples/new?word=${word}`">
                         <h1 v-bind:style="{ color: colors[index % colors.length], backgroundColor: '' }">
                           {{ word }}
                         </h1>
@@ -26,6 +26,7 @@
 
                         <!-- <span>Use it!</span> -->
                       </router-link>
+
                       <!-- </div>
                       </div> -->
                     </div>
@@ -222,6 +223,10 @@ export default {
     };
   },
   created: function () {},
-  methods: {},
+  methods: {
+    scrollToTop() {
+      window.scrollTo(0, 0);
+    },
+  },
 };
 </script>

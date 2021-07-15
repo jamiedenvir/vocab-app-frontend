@@ -3,10 +3,25 @@
     <section class="o-hidden position-relative pt-5">
       <div class="container">
         <div class="row no-gutters justify-content-center">
+          <div>
+            <header class="header header-transparent default header-sticky-dark" id="center-text">
+              <nav
+                class="navbar navbar-static-top navbar-expand-lg header-sticky justify-content-between"
+                id="custom-padding"
+              >
+                <h1 class="display-1" id="my-icon-3">
+                  <span class="display-6" id="my-icon-4"></span>
+                  ___{{ example.word }}
+                  <span class="display-6" id="my-icon-4"></span>
+                  <h6 id="my-icon-2">({{ wordData.lexical_category }})</h6>
+                </h1>
+              </nav>
+            </header>
+          </div>
           <div class="col-lg-9 blog-single">
             <div>
-              <h1 class="display-1" id="my-icon-3">{{ example.word }}</h1>
-              <h4 id="my-icon-2">{{ wordData.lexical_category }}</h4>
+              <!-- <h1 class="display-1" id="my-icon-3">{{ example.word }}</h1>
+              <h4 id="my-icon-2">{{ wordData.lexical_category }}</h4> -->
             </div>
 
             <div>
@@ -17,6 +32,15 @@
             <br />
 
             <span id="center-text">
+              <br />
+              <br />
+              <br />
+              <br />
+              <br />
+              <br />
+              <br />
+              <br />
+              <br />
               <br />
               <h3 id="my-icon">YOUR PROMPT:</h3>
               <div v-if="example.prompt.image_url === null">
@@ -64,7 +88,7 @@
                     <input type="submit" class="btn btn-primary" value="Submit" id="custom-button-4" />
                     <br />
                     <br />
-                    <button v-on:click="destroyExample()" id="custom-button-4">Delete Example</button>
+                    <button v-on:click="destroyExample()" id="custom-button-5">Delete Example</button>
                   </form>
                 </div>
               </span>
