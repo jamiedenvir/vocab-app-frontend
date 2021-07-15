@@ -119,7 +119,7 @@
               </form>
             </div>
 
-            <span class="display-7" id="my-icon-2">[i, um, don't know what {{ word }} means]</span>
+            <span class="display-7" id="my-icon-2">[i, um, don't know what "{{ word }}" means]</span>
             <div class="blog-sidebar sidebar border">
               <div>
                 <div>
